@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <style>
         html {
@@ -62,8 +62,8 @@
         <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Tên đăng nhập</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your account with anyone else.</small>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+              <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ thông tin của bạn cho bất cứ ai</small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Mật khẩu</label>
@@ -80,48 +80,50 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                    <div class="control-group">
-                        <!-- Username -->
-                        <label class="control-label"  for="username">Username</label>
-                        <div class="controls">
-                          <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                          <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                <form action="" method="post" id="signup-form">
+                    <div class="modal-body">
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label"  for="username_signup">Tên đăng nhập</label>
+                            <div class="controls">
+                              <input type="text" id="username_signup" name="username_signup" placeholder="" class="input-xlarge">
+                              <p class="help-block" style="font-size: 12px;"><span id="username-signup-error" style="color: red;"></span>Tên đăng nhập chứa 5-30 ký tự</p>
+                            </div>
+                        </div>       
+                        <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">E-mail</label>
+                            <div class="controls">
+                              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                              <p class="help-block" style="font-size: 12px;"><span id="email-error" style="color: red;"></span>Xin cung cấp E-mail của bạn</span></p>
+                            </div>
+                        </div>                 
+                        <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password_signup">Mật khẩu</label>
+                            <div class="controls">
+                              <input type="password" id="password_signup" name="password_signup" placeholder="" class="input-xlarge">
+                              <p class="help-block" style="font-size: 12px;"><span id="password-signup-error" style="color: red;"></span>Mật khẩu chứa 5-30 ký tự</span></p>
+                            </div>
                         </div>
-                    </div>       
-                    <div class="control-group">
-                        <!-- E-mail -->
-                        <label class="control-label" for="email">E-mail</label>
-                        <div class="controls">
-                          <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-                          <p class="help-block">Please provide your E-mail</p>
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label"  for="password_confirm_signup">Xác nhận mật khẩu</label>
+                            <div class="controls">
+                              <input type="password" id="password_confirm_signup" name="password_confirm_signup" placeholder="" class="input-xlarge">
+                              <p class="help-block" style="font-size: 12px;"><span id="confirm-password-signup-error" style="color: red;"></span>Xin xác nhận mật khẩu</span></p>
+                            </div>
                         </div>
-                    </div>                 
-                    <div class="control-group">
-                        <!-- Password-->
-                        <label class="control-label" for="password">Password</label>
-                        <div class="controls">
-                          <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                          <p class="help-block">Password should be at least 4 characters</p>
-                        </div>
+                        <!-- <div class="control-group">
+                            <div class="controls">
+                              <button class="btn btn-success">Register</button>
+                            </div>
+                        </div> -->
                     </div>
-                    <div class="control-group">
-                        <!-- Password -->
-                        <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-                        <div class="controls">
-                          <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-                          <p class="help-block">Please confirm password</p>
-                        </div>
-                    </div>
-                    <!-- <div class="control-group">
-                        <div class="controls">
-                          <button class="btn btn-success">Register</button>
-                        </div>
-                    </div> -->
-                </div>
+                </form>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
-                  <button type="button" class="btn btn-primary">Đăng ký</button>
+                  <button type="button" onclick="check_data()" class="btn btn-primary" id="signup">Đăng ký</button>
                 </div>
               </div>
             </div>
@@ -178,6 +180,90 @@
             }, function(){
             $("#drop > ul").css("display","none")
         })  
+
+        //validate sign-up data
+        function check_username_signup(){
+            let username_signup = document.getElementById("username_signup")
+            if(username_signup.value.length < 5){
+                document.getElementById("username-signup-error").innerHTML="Tên đăng nhập không thể ít hơn 5 ký tự<br>"
+                console.log(document.getElementById("username-signup-error"))
+                return 1
+            } else if(username_signup.value.length > 30){
+                document.getElementById("username-signup-error").innerHTML="Tên đăng nhập không thể nhiều hơn 30 ký tự<br>"
+                return 1
+            } else {
+                document.getElementById("username-signup-error").innerHTML=""
+                return 0
+            }
+        }
+
+        function check_password_signup(){
+            let password_signup = document.getElementById("password_signup")
+            if(password_signup.value.length < 5){
+                document.getElementById("password-signup-error").innerHTML="Mật khẩu không thể ít hơn 5 ký tự<br>"
+                return 1
+            } else if(password_signup.value.length > 30){
+                document.getElementById("password-signup-error").innerHTML="Mật khẩu không thể nhiều hơn 30 ký tự<br>"
+                return 1
+            } else {
+                document.getElementById("password-signup-error").innerHTML=""
+                return 0
+            }
+        }
+
+        function check_confirm_password_signup(){
+            let password_signup = document.getElementById("password_signup")
+            let password_confirm_signup = document.getElementById("password_confirm_signup")
+            if(password_confirm_signup.value != password_signup.value){
+                document.getElementById("confirm-password-signup-error").innerHTML = "Mật khẩu không chính xác<br>"
+                return 1
+            } else {
+                document.getElementById("confirm-password-signup-error").innerHTML = ""
+                return 0
+            }
+        }
+        
+        function check_email() {
+            let email = document.getElementById("email")
+            var re = /\S+@\S+\.\S+/;
+            result = re.test(email.value)
+            // console.log (email.value);
+            if (result) {
+                document.getElementById("email-error").innerHTML=""
+                return 0
+            } else {
+                document.getElementById("email-error").innerHTML="Email không hợp lệ<br>"
+                return 1
+            }
+        }
+        
+        function check_data(){
+            var error_flag = 0
+            console.log("aa")
+            error_flag += check_username_signup()
+            error_flag += check_password_signup()
+            error_flag += check_confirm_password_signup()
+            error_flag += check_email()
+            if(error_flag == 0){
+                let signup_form = $("#signup-form")
+                console.log(signup_form.serialize())
+                $.ajax({
+                    type:"POST",
+                    url: "API/api_signup.php",
+                    data: signup_form.serialize(),
+                    success: function(response){
+                        result = JSON.parse(response)
+                        console.log(result)
+                        if(result['sql_status'] == "success"){
+                            alert("Đăng ký tài khoản thành công!")
+                            signup_form.submit()
+                        } else {
+                            $('#username-signup-error').html('Tên đăng nhập đã được sử dụng, vui lòng chọn tên đăng nhập khác<br>')
+                        }
+                    }
+                })
+            }
+        }
     </script>
 </body>
 </html>
