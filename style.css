@@ -370,6 +370,10 @@ html {
     height: calc(100vh - 115px);
 }
 
+#login h2 {
+    margin-bottom: 20px;
+}
+
 #login span {
     vertical-align: middle;
 }
