@@ -1,4 +1,6 @@
 <?php
+        session_start();
+        
         $username = "root";
         $password = "";
         $hostname = "localhost"; 
@@ -20,18 +22,22 @@
         //insert data to mysql
         if($_SERVER['REQUEST_METHOD']=="POST"){
             //insert
-            if($_POST['username_signup'] != "" && $_POST['password_signup'] != "" && $_POST['email'] != ""){
-                $sql = "INSERT INTO user_info(username, password, email) VALUES('".$_POST['username_signup']."','".$_POST['password_signup']."','".$_POST['email']."');";
+            if($_POST['username_signin'] != "" && $_POST['password_signin'] != ""){
+                $sql = "SELECT * FROM user_info WHERE username='".$_POST['username_signin']."' AND password='".$_POST['username_signin']."';";
                 if ($mysqli->query($sql)) {
                     $result['sql_status'] = "success";
                     $result['sql_log'] = $sql;
+                    $result['user_data'] = $mysqli->query($sql)->fetch_assoc();
+                    // print $result['user_data'];
+                    $_SESSION['username'] = $result['user_data']['username'];
+                    $_SESSION['user_id'] = $result['user_data']['user_id'];
                 } else {
                     $result['sql_log'] = $sql;
                 }
             }
         }
 		// echo "<pre>";
-		// var_dump($_POST);
+		// var_dump($result['user_data']->user_id);
         // echo "</pre>";
 
         //pass $result to ajax response

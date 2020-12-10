@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <style>
         html {
-            overflow: hidden;
+            /* overflow: hidden; */
         }
     </style>
 </head>
@@ -55,32 +58,34 @@
                 <li style='padding: 0 20px;'><a href='contactus.html'>Về chúng tôi</a></li>
             </ul>
             <div id='user'>
-                <a href='./login.php'><i class="fa fa-user fa-lg" aria-hidden="true"></i><span> Đăng nhập/Đăng ký</span></a>
+                <a href='./login.php'><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>
             </div>
         </div>
     </div>
     <div id='login'>
-        <form>
+        <form id="signin-form">
             <h2>Đăng nhập</h2>
             <div class="form-group">
-              <label for="exampleInputEmail1">Tên đăng nhập</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
-              <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ thông tin của bạn cho bất cứ ai</small>
+                <span style="color: red; font-size: 15px" id="signin-error"></span>
+                <label for="username_signin">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="username_signin" name="username_signin" aria-describedby="emailHelp" placeholder="Username">
+                <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không bao giờ chia sẻ thông tin của bạn cho bất cứ ai</small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Mật khẩu</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="password_signin">Mật khẩu</label>
+                <input type="password" class="form-control" id="password_signin" name="password_signin" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Đăng nhập</button><span> Chưa có tài khoản?</span><span style='background-color: white; border: none;' type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><u>Đăng ký</u></span>
         </form>
+        <button id='signin-btn' class="btn btn-primary">Đăng nhập</button><span> Chưa có tài khoản?</span><span style='background-color: white; border: none;' type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><u>Đăng ký</u></span>
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Đăng ký</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <form action="" method="post" id="signup-form">
                     <div class="modal-body">
@@ -88,32 +93,32 @@
                             <!-- Username -->
                             <label class="control-label"  for="username_signup">Tên đăng nhập</label>
                             <div class="controls">
-                              <input type="text" id="username_signup" name="username_signup" placeholder="" class="input-xlarge">
-                              <p class="help-block" style="font-size: 12px;"><span id="username-signup-error" style="color: red;"></span>Tên đăng nhập chứa 5-30 ký tự</p>
+                                <input type="text" id="username_signup" name="username_signup" placeholder="" class="input-xlarge">
+                                <p class="help-block" style="font-size: 12px;"><span id="username-signup-error" style="color: red;"></span>Tên đăng nhập chứa 5-30 ký tự</p>
                             </div>
                         </div>       
                         <div class="control-group">
                             <!-- E-mail -->
                             <label class="control-label" for="email">E-mail</label>
                             <div class="controls">
-                              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-                              <p class="help-block" style="font-size: 12px;"><span id="email-error" style="color: red;"></span>Xin cung cấp E-mail của bạn</span></p>
+                                <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                <p class="help-block" style="font-size: 12px;"><span id="email-error" style="color: red;"></span>Xin cung cấp E-mail của bạn</span></p>
                             </div>
                         </div>                 
                         <div class="control-group">
                             <!-- Password-->
                             <label class="control-label" for="password_signup">Mật khẩu</label>
                             <div class="controls">
-                              <input type="password" id="password_signup" name="password_signup" placeholder="" class="input-xlarge">
-                              <p class="help-block" style="font-size: 12px;"><span id="password-signup-error" style="color: red;"></span>Mật khẩu chứa 5-30 ký tự</span></p>
+                                <input type="password" id="password_signup" name="password_signup" placeholder="" class="input-xlarge">
+                                <p class="help-block" style="font-size: 12px;"><span id="password-signup-error" style="color: red;"></span>Mật khẩu chứa 5-30 ký tự</span></p>
                             </div>
                         </div>
                         <div class="control-group">
                             <!-- Password -->
                             <label class="control-label"  for="password_confirm_signup">Xác nhận mật khẩu</label>
                             <div class="controls">
-                              <input type="password" id="password_confirm_signup" name="password_confirm_signup" placeholder="" class="input-xlarge">
-                              <p class="help-block" style="font-size: 12px;"><span id="confirm-password-signup-error" style="color: red;"></span>Xin xác nhận mật khẩu</span></p>
+                                <input type="password" id="password_confirm_signup" name="password_confirm_signup" placeholder="" class="input-xlarge">
+                                <p class="help-block" style="font-size: 12px;"><span id="confirm-password-signup-error" style="color: red;"></span>Xin xác nhận mật khẩu</span></p>
                             </div>
                         </div>
                         <!-- <div class="control-group">
@@ -266,6 +271,24 @@
                 })
             }
         }
+        $('#signin-btn').on('click',function(){
+            let signin_form = $('#signin-form')
+            console.log(signin_form.serialize())
+            $.ajax({
+                    type:"POST",
+                    url: "API/api_signin.php",
+                    data: signin_form.serialize(),
+                    success: function(response){
+                        result = JSON.parse(response)
+                        console.log(result)
+                        if(result['sql_status'] == "success"){
+                            window.location = "trangchu.php"
+                        } else {
+                            $('#signin-error').html('Sai tên đăng nhập hoặc mật khẩu<br>')
+                        }
+                    }
+                })
+        })
     </script>
 </body>
 </html>
