@@ -382,3 +382,125 @@ html {
     cursor: pointer;
     color: blue;
 }
+
+/* ssd, danh muc */
+.ssd {
+    background-color: rgb(241,240,241);
+    padding: 10px 5vw;
+}
+
+#ssd > div {
+    display: flex;
+    padding: 1rem;
+}
+
+#ssd1 {
+    width: 70%;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    padding: 20px;
+    display: flex;
+}
+
+#ssd3 {
+    width: 40%;
+    padding: 10px;
+}
+
+#ssd3 img {
+    width: 100%; 
+    height: auto; 
+    padding: 20px;
+    border-bottom: 1px dashed #a09c9c;
+}
+
+#ssd5 {
+    width: 60%;
+    padding: 20px;
+}
+
+#ssd7 {
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #a09c9c;
+}
+
+#ssd7 span {
+    font-size: 24px;
+}
+
+#ssd7 h3 {
+    margin: 15px 0 20px 0;
+    color: #698b64;
+}
+
+#ssd9 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#ssd9 button {
+    width: 48%;
+}
+
+#ssd11 {
+    padding-top: 20px;
+}
+
+#ssd2 {
+    width: 30%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#ssd4 {
+    margin-top: 5px;
+}
+
+#ssd4 h4{
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+
+/* cart */
+#checkout > div{
+    display: flex;
+    padding: 1rem 0;
+}
+
+#checkout h4 {
+    text-transform: uppercase;
+}
+
+#checkout1 {
+    width: 75%;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+#checkout2 {
+    width: 25%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.unit {
+    display: flex;
+}
+
+.unit1 {
+    margin: auto 10px;
+    height: fit-content;
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #aaa8a8;
+    border-radius: 5px;
+}
+
+.unit2 {
+    margin-left: 10px;
+}
