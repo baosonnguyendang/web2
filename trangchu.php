@@ -235,12 +235,13 @@
                     <div style="display: flex; width: 100%; flex-wrap: wrap;">`
             $.each(item_array, function(index, item){
                 html_string += `
-                    <div class="card" style="min-width: 180px;">
+                    <div class="card" style="min-width: 180px;" onclick="view_item(this)">
                         <img src='` + item[2] + `' alt=''>
                         <div class="container">
                             <p style='font-size: 13px;'>` + item[1] + `</p>
                             <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
                         </div>
+                        <input type="hidden" name="item_id" value="` + item[0] + `">
                     </div>`
             })
 
@@ -257,12 +258,39 @@
                     data: {'type':value},
                     success: function(response){
                         result = JSON.parse(response)
-                        console.log(result['item_data'])
-                        console.log(value)
+                        // console.log(result['item_data'])
+                        // console.log(value)
                         fill_data(value, result['item_data'])
                     }
                 })
             })
+        }
+
+        function view_item(element){
+            console.log(element);
+            console.log(element.children[2].value);
+            item_id = element.children[2].value
+            // $.ajax({
+            //     type: "GET",
+            //     url: "./API/api_set_session.php",
+            //     data: {'item_id':item_id},
+            //     success: function(response){
+            //         result = JSON.parse(response)
+            //     }
+            // })
+            var form = document.createElement("form");
+            var item_id_input = document.createElement("input"); 
+
+            form.method = "GET";
+            form.action = "viewitem.php";   
+
+            item_id_input.value= item_id;
+            item_id_input.name="item_id";
+            form.appendChild(item_id_input);  
+
+            document.body.appendChild(form);
+
+            form.submit();
         }
         window.onload = get_item_data()
     </script>
