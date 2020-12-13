@@ -264,7 +264,7 @@
                 console.log(signup_form.serialize())
                 $.ajax({
                     type:"POST",
-                    url: "API/api_signup.php",
+                    url: "./API/api_signup.php",
                     data: signup_form.serialize(),
                     success: function(response){
                         result = JSON.parse(response)
@@ -284,7 +284,7 @@
             console.log(signin_form.serialize())
             $.ajax({
                     type:"POST",
-                    url: "API/api_signin.php",
+                    url: "./API/api_signin.php",
                     data: signin_form.serialize(),
                     success: function(response){
                         result = JSON.parse(response)

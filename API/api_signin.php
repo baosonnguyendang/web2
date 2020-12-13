@@ -23,8 +23,8 @@
         if($_SERVER['REQUEST_METHOD']=="POST"){
             //insert
             if($_POST['username_signin'] != "" && $_POST['password_signin'] != ""){
-                $sql = "SELECT * FROM user_info WHERE username='".$_POST['username_signin']."' AND password='".$_POST['username_signin']."';";
-                if ($mysqli->query($sql)) {
+                $sql = "SELECT * FROM user_info WHERE username='".$_POST['username_signin']."' AND password='".$_POST['password_signin']."';";
+                if (!empty($mysqli->query($sql)->fetch_assoc())) {
                     $result['sql_status'] = "success";
                     $result['sql_log'] = $sql;
                     $result['user_data'] = $mysqli->query($sql)->fetch_assoc();
@@ -32,7 +32,9 @@
                     $_SESSION['username'] = $result['user_data']['username'];
                     $_SESSION['user_id'] = $result['user_data']['user_id'];
                 } else {
+                    $result['sql_status'] = "fail";
                     $result['sql_log'] = $sql;
+                    $result['user_data'] = $mysqli->query($sql)->fetch_assoc();
                 }
             }
         }
