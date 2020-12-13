@@ -16,52 +16,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id='header'>
-        <img src='./images/logo.jpg' alt=''>
-        <div id='slogan'>
-            <p style='font-family: cursive; font-size: 36px; color:red;'><a href='trangchu.php'><b>HASH </b></a></p>
-        </div>
-        <div id='cart'>
-            <div class='cart1'>
-                <a><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
+    <div>
+        <div id='header'>
+            <img src='./images/logo.jpg' alt=''>
+            <div id='slogan'>
+                <p style='font-family: cursive; font-size: 36px; color:red;'><a href='trangchu.php'><b>HASH </b></a></p>
             </div>
-            <span> 0912345678</span>
-            <div class='cart1'>
-                <a><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+            <div id='cart'>
+                <div class='cart1'>
+                    <a><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
+                </div>
+                <span> 0912345678</span>
+                <div class='cart1'>
+                    <a><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+                </div>
+                <span style='cursor: pointer;'><b> Giỏ hàng</b></span>
             </div>
-            <span style='cursor: pointer;'><b> Giỏ hàng</b></span>
+            <div id='bar'>
+                <a><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+            </div>
+            <div id='close'>
+                <a><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+            </div>
         </div>
-        <div id='bar'>
-            <a><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-        </div>
-        <div id='close'>
-            <a><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+        <div id='header2'>
+            <ul id='menu' class='menu'>
+                <li style='width: 120px;'><a href='aboutus.html'>Trang chủ</a></li>
+                <li style='width: 140px;' id='drop'>
+                    <a href='ourproducts.html'>Danh mục <span style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <ul id='category'>
+                        <li><a href="#">SSD</a></li>
+                        <li><a href="#">RAM</a></li>
+                    </ul>
+                </li>
+                <li style='width: 120px;'><a href='careers.html'>Đăng bán</a></li>
+                <li style='width: 140px;'><a href='careers.html'>Theo dõi đơn</a></li>
+                <li style='padding: 0 20px;'><a href='contactus.html'>Về chúng tôi</a></li>
+            </ul>
+            <div id='user'>
+                <?php
+                    if(isset($_SESSION['username'])){
+                        echo '<a href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>'.$_SESSION['username'].'</span></a>';
+                    } else {
+                        echo '<a href="./login.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>';
+                    }
+                ?>
+            </div>
         </div>
     </div>
-    <div id='header2'>
-        <ul id='menu' class='menu'>
-            <li style='width: 120px;'><a href='aboutus.html'>Trang chủ</a></li>
-            <li style='width: 140px;' id='drop'>
-                <a href='ourproducts.html'>Danh mục <span style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></span></a>
-                <ul id='category'>
-                    <li><a href="#">SSD</a></li>
-                    <li><a href="#">RAM</a></li>
-                </ul>
-            </li>
-            <li style='width: 120px;'><a href='careers.html'>Đăng bán</a></li>
-            <li style='width: 140px;'><a href='careers.html'>Theo dõi đơn</a></li>
-            <li style='padding: 0 20px;'><a href='contactus.html'>Về chúng tôi</a></li>
-        </ul>
-        <div id='user'>
-            <?php
-                if(isset($_SESSION['username'])){
-                    echo '<a href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>'.$_SESSION['username'].'</span></a>';
-                } else {
-                    echo '<a href="./login.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>';
-                }
-            ?>
-        </div>
-    </div>
+
     <div id='mid'>
         <div id='sale'>
             <h3><i>Giá sốc tận nóc</i></h3>
@@ -116,6 +119,7 @@
             </div>
         </div>
     </div>
+    
     <div class='footer' id='footer1'>
         <div id='f1'>
             <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>

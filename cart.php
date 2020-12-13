@@ -4,18 +4,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HASH</title>
-        <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASH</title>
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
         <div id='header'>
             <img src='./images/logo.jpg' alt=''>
             <div id='slogan'>
@@ -62,76 +63,79 @@
                 ?>
             </div>
         </div>
-        <div id='checkout' class='ssd'>
-            <h4>Giỏ hàng</h4>
-            <div>
-                <div id='checkout1'>
-                    <div class='unit'>
-                        <div class='unit1'>
-                            <img src='./images/sp1.jpg' alt='' style='width:100%; height: auto'>
-                        </div>
-                        <div class='unit2'>
-                            <p>Ổ cứng SSD Samsung 860 Evo 500GB 2.5" SATA 3 - MZ-76E500BW</p>
-                            <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;'>Xóa sản phẩm</p>
-                        </div>
+    </div>
+
+    <div id='checkout' class='ssd'>
+        <h4>Giỏ hàng</h4>
+        <div>
+            <div id='checkout1'>
+                <div class='unit'>
+                    <div class='unit1'>
+                        <img src='./images/sp1.jpg' alt='' style='width:100%; height: auto'>
+                    </div>
+                    <div class='unit2'>
+                        <p>Ổ cứng SSD Samsung 860 Evo 500GB 2.5" SATA 3 - MZ-76E500BW</p>
+                        <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;'>Xóa sản phẩm</p>
                     </div>
                 </div>
-                <div id='checkout2'>
-                    <p>b</p>
-                </div>
+            </div>
+            <div id='checkout2'>
+                <p>b</p>
             </div>
         </div>
-        <div class='footer' id='footer1'>
-            <div id='f1'>
-                <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
-                <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
-                <p style='font-size: 14px; margin-bottom: 5px;'>Email: noreply@hcmut.edu.vn</p>
-            </div>
-            <div id='f2'>
-                <p style='font-size: 20px;'><b>FOLLOW US</b></p>
-                <a href="#"><span class="fa fa-facebook-official fa-2x" style='color: #4267B2;'></span></a>
-                <a href="#"><span class="fa fa-twitter fa-2x" style='color: #1DA1F2;'></span></a>
-                <a href="#"><span class="fa fa-skype fa-2x" style='color: #00AFF0;'></span></a>
-                <a href="#"><span class="fa fa-youtube-play fa-2x" style='color: red;'></span></a>
-            </div>
+    </div>
+    
+    <div class='footer' id='footer1'>
+        <div id='f1'>
+            <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
+            <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
+            <p style='font-size: 14px; margin-bottom: 5px;'>Email: noreply@hcmut.edu.vn</p>
         </div>
-        <script>
-            $("#bar").click(function(){
+        <div id='f2'>
+            <p style='font-size: 20px;'><b>FOLLOW US</b></p>
+            <a href="#"><span class="fa fa-facebook-official fa-2x" style='color: #4267B2;'></span></a>
+            <a href="#"><span class="fa fa-twitter fa-2x" style='color: #1DA1F2;'></span></a>
+            <a href="#"><span class="fa fa-skype fa-2x" style='color: #00AFF0;'></span></a>
+            <a href="#"><span class="fa fa-youtube-play fa-2x" style='color: red;'></span></a>
+        </div>
+    </div>
+    <script>
+        $("#bar").click(function(){
+            $("#bar").css("display","none")
+            $("#close").css("display","block")
+            document.getElementById('menu').className = "menu2";
+        })
+        $("#close").click(function(){
+            $("#close").css("display","none")
+            $("#bar").css("display","block")
+            document.getElementById("menu").className = "menu";
+        })
+        $(window).resize(function(){
+            if ($("#menu").css("display") == 'block') {
                 $("#bar").css("display","none")
-                $("#close").css("display","block")
-                document.getElementById('menu').className = "menu2";
-            })
-            $("#close").click(function(){
-                $("#close").css("display","none")
+            }
+            if ($("#menu").css("display") == 'none') {
                 $("#bar").css("display","block")
+            }
+            if ($("#menu").css("display") == 'inline'){
+                $("#close").css("display","none")
+                $("#bar").css("display","none")
+            }
+            if (window.innerWidth > 767){
                 document.getElementById("menu").className = "menu";
-            })
-            $(window).resize(function(){
-                if ($("#menu").css("display") == 'block') {
-                    $("#bar").css("display","none")
-                }
-                if ($("#menu").css("display") == 'none') {
-                    $("#bar").css("display","block")
-                }
-                if ($("#menu").css("display") == 'inline'){
-                    $("#close").css("display","none")
-                    $("#bar").css("display","none")
-                }
-                if (window.innerWidth > 767){
-                    document.getElementById("menu").className = "menu";
-                    $("#bar").css("display","none")
-                    $("#close").css("display","none")
-                }
-                if ($("#bar").css("display") == 'none' && $("#close").css("display") == 'none'){
-                    document.getElementById("menu").className = "menu";
-                }
-            })
+                $("#bar").css("display","none")
+                $("#close").css("display","none")
+            }
+            if ($("#bar").css("display") == 'none' && $("#close").css("display") == 'none'){
+                document.getElementById("menu").className = "menu";
+            }
+        })
 
-            $("#drop").hover(function(){
-                $("#drop > ul").css("display","block")
-                }, function(){
-                $("#drop > ul").css("display","none")
-            })  
-        </script>
-    </body>
+        $("#drop").hover(function(){
+            $("#drop > ul").css("display","block")
+            }, function(){
+            $("#drop > ul").css("display","none")
+        })  
+    </script>
+</body>
 </html>
