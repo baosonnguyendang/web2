@@ -58,7 +58,7 @@ CREATE TABLE `item_info` (
 --
 
 INSERT INTO `item_info` (`item_id`, `item_name`, `item_picture`, `item_description`, `type`, `sell_date`, `stock`, `price`, `seller_id`, `is_delete`) VALUES
-(1, 'GEFORCE RTX 3080', 'https://cdn.vox-cdn.com/thumbor/AgIu_n_6Ths1IVgV0namvmxdalM=/0x0:2640x1749/2070x1164/filters:focal(1128x940:1550x1362):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/67414958/twarren_rtx3080.', 'Card new vừa nhập', 'gpu', '0000-00-00 00:00:00', 10, 29000000, 1, 0),
+(1, 'GEFORCE RTX 3080', 'https://tandoanh.vn/wp-content/uploads/2020/12/MSI-Geforce-RTX-3080-SUPRIM-X-10G-10GB-GDDR6X-H1.jpg', 'Card new vừa nhập', 'gpu', '0000-00-00 00:00:00', 10, 29000000, 1, 0),
 (2, 'GEFORCE GTX 1660 SUPER', 'https://static.digit.in/default/54ca53f4cacb16d40e19c8f2c999f87524a911ab.jpeg', 'Còn bảo hành đến 09/2023', 'gpu', '0000-00-00 00:00:00', 10, 5000000, 2, 0),
 (3, 'RADEON RX580', 'https://www.pcgamesn.com/wp-content/uploads/2018/03/AMD-RX-580-graphics-cards.jpg', 'Hết bảo hành', 'gpu', '0000-00-00 00:00:00', 20, 5000000, 2, 0),
 (4, 'CPU Intel i9-10900K', 'https://tandoanh.vn/wp-content/uploads/2020/05/Intel-Core-I9-10900K-10C-20T-20MB-3.70-5.30-GHz-Avengers-Edition-Box-chinh-hang.jpg', 'hàng chính h?ng', 'cpu', '0000-00-00 00:00:00', 5, 14000000, 3, 0),
