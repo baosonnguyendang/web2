@@ -103,7 +103,21 @@
                                 <input type="text" id="username_signup" name="username_signup" placeholder="" class="input-xlarge">
                                 <p class="help-block" style="font-size: 12px;"><span id="username-signup-error" style="color: red;"></span>Tên đăng nhập chứa 5-30 ký tự</p>
                             </div>
-                        </div>       
+                        </div>  
+                        <div class="control-group">
+                            <!-- Name -->
+                            <label class="control-label"  for="name_signup">Tên người dùng</label>
+                            <div class="controls">
+                                <input type="text" id="name_signup" name="name_signup" placeholder="Nguyen Van A" maxlength="200" required class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!-- Address -->
+                            <label class="control-label"  for="address_signup">Địa chỉ</label>
+                            <div class="controls">
+                                <input type="text" id="address_signup" name="address_signup" placeholder="" class="input-xlarge" required>
+                            </div>
+                        </div>     
                         <div class="control-group">
                             <!-- E-mail -->
                             <label class="control-label" for="email">E-mail</label>
