@@ -244,7 +244,25 @@ html {
     display: flex;
 }
 
+.item-showcase {
+    padding-bottom: 10px;
+    margin: 20px 0;
+    background-color: white;    
+}
+
+.item-showcase h3 {
+    color: blueviolet;
+    font-size: 36px;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-family: monospace;
+}
+
+.item-showcase > div {
+    display: flex;
+}
 .card {
+    min-width: 180px;
     width: 180px;
     display: block;
     margin: 5px 15px;
@@ -288,7 +306,7 @@ html {
 }
 
 #footer1 {
-    position: absolute;
+    position: fixed;
 }
 
 #f1 {
