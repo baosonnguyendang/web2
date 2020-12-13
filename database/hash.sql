@@ -58,26 +58,26 @@ CREATE TABLE `item_info` (
 --
 
 INSERT INTO `item_info` (`item_id`, `item_name`, `item_picture`, `item_description`, `type`, `sell_date`, `stock`, `price`, `seller_id`, `is_delete`) VALUES
-(1, 'GEFORCE RTX 3080', 'https://cdn.vox-cdn.com/thumbor/AgIu_n_6Ths1IVgV0namvmxdalM=/0x0:2640x1749/2070x1164/filters:focal(1128x940:1550x1362):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/67414958/twarren_rtx3080.', 'Card new vừa nhập', 'Card màn hình', '0000-00-00 00:00:00', 10, 29000000, 1, 0),
-(2, 'GEFORCE GTX 1660 SUPER', 'https://static.digit.in/default/54ca53f4cacb16d40e19c8f2c999f87524a911ab.jpeg', 'Còn bảo hành đến 09/2023', 'Card màn hình', '0000-00-00 00:00:00', 10, 5000000, 2, 0),
-(3, 'RADEON RX580', 'https://www.pcgamesn.com/wp-content/uploads/2018/03/AMD-RX-580-graphics-cards.jpg', 'Hết bảo hành', 'Card màn hình', '0000-00-00 00:00:00', 20, 5000000, 2, 0),
-(4, 'CPU Intel i9-10900K', 'https://tandoanh.vn/wp-content/uploads/2020/05/Intel-Core-I9-10900K-10C-20T-20MB-3.70-5.30-GHz-Avengers-Edition-Box-chinh-hang.jpg', 'hàng chính h?ng', 'CPU', '0000-00-00 00:00:00', 5, 14000000, 3, 0),
-(5, 'CPU Intel i3-10100F', 'https://tandoanh.vn/wp-content/uploads/2020/05/intel-core-i3-comet-lake-s.jpg', 'hàng chính hảng', 'CPU', '0000-00-00 00:00:00', 20, 2000000, 3, 0),
-(6, 'CPU AMD Ryzen R-3600', 'https://tandoanh.vn/wp-content/uploads/2019/11/AMD-Ryzen%E2%84%A2-5-3600-6C12T-UPTO-4.2GHZ-Nhap-Khau.jpg.webp', 'hàng chính hảng', 'CPU', '0000-00-00 00:00:00', 2, 5000000, 3, 0),
-(7, 'Gskill TridentZ Neo RGB 16GB (2x8GB)', 'https://tandoanh.vn/wp-content/uploads/2020/10/G.SKILL-TRIDENT-Z-NEO-RGB.jpg', 'Hàng chính hãng - Bảo hành 36 tháng', 'RAM', '0000-00-00 00:00:00', 10, 2650000, 4, 0),
-(8, 'G.Skill Ripjaws V 8GB ( 1x8GB )', 'https://tandoanh.vn/wp-content/uploads/2020/09/G.Skill-Ripjaws-V.jpg', 'Hết bảo hành', 'RAM', '0000-00-00 00:00:00', 5, 500000, 3, 0),
-(9, 'Samsung 980 Pro M.2 2280 250GB', 'https://tandoanh.vn/wp-content/uploads/2020/10/Samsung-980-Pro-M.2-2280-250GB.jpg', 'Hàng xách tay -  Bảo hành trách nhiệm 1 tháng', 'RAM', '0000-00-00 00:00:00', 10, 1800000, 1, 0),
-(10, 'Crucial BX500 3D NAND 2.5? 240GB – Sata3', 'https://tandoanh.vn/wp-content/uploads/2020/03/Crucial-BX500-3D-NAND-SATA-III-2.5-inch-240GB-02.jpg.webp', 'Vừa mua tháng 6/2020', 'SDD', '0000-00-00 00:00:00', 1, 550000, 1, 0),
-(11, 'Samsung 860 Evo 250GB 3D V-Nand – Sata3 SSD', 'https://tandoanh.vn/wp-content/uploads/2019/08/Samsung-860-Evo-3D-V-Nand.jpg', 'Còn 24 tháng bảo hành', 'SDD', '0000-00-00 00:00:00', 5, 1000000, 2, 0),
-(12, 'Western Digital Caviar Black 1TB', 'https://tandoanh.vn/wp-content/uploads/2019/08/WD-Caviar-Black-1TB-HDD.jpg', 'Vừa mua tháng 1/2020', 'HDD', '0000-00-00 00:00:00', 10, 1500000, 3, 0),
-(13, 'Western Digital Caviar Red 1TB', 'https://tandoanh.vn/wp-content/uploads/2019/08/WD-Caviar-Red-1TB-HDD.jpg.webp', 'Ổ cứng WD Red 1TB chuyên dùng cho NAS - Hàng m?i chính h?ng', 'HDD', '0000-00-00 00:00:00', 5, 1500000, 2, 0),
-(14, 'Seagate Barracuda 1TB Sata 3', 'https://tandoanh.vn/wp-content/uploads/2019/08/Seagate-Barracuda-1TB-HDD.jpg.webp', 'Hàng xách tay', 'HDD', '0000-00-00 00:00:00', 10, 800000, 2, 0),
-(15, 'Gigabyte Z490i AORUS ULTRA Rev 1.0 – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/07/Gigabyte-Z490i-AORUS-ULTRA-Socket-1200-01.jpg', 'Còn 33 tháng bảo hành', 'Mobo', '0000-00-00 00:00:00', 4, 6000000, 2, 0),
-(16, 'Asus TUF GAMING B460-PLUS – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/11/Asus-TUF-GAMING-B460-PLUS-Socket-1200-01.jpg', 'Còn 30 tháng bảo hành', 'Mobo', '0000-00-00 00:00:00', 2, 2000000, 2, 0),
-(17, 'MSI MAG X570 TOMAHAWK WIFI', 'https://tandoanh.vn/wp-content/uploads/2020/11/MSI-MAG-X570-TOMAHAWK-WIFI-H1.jpg.webp', 'Hàng xách tay', 'Mobo', '0000-00-00 00:00:00', 5, 5000000, 1, 0),
-(18, 'ANTEC VP650P PLUS 650W 80PLUS 230V SINGLE RAIL', 'https://tandoanh.vn/wp-content/uploads/2020/11/ANTEC-VP650P-PLUS-650W-H1.jpg', 'Mua tháng 06/2020', 'Mobo', '0000-00-00 00:00:00', 2, 700000, 4, 0),
-(19, 'Corsair SF600 80+ Gold SFX PSU – Fully Modular', 'https://tandoanh.vn/wp-content/uploads/2020/11/Corsair-SF600-80-Gold-SFX-PSU-Fully-Modular-01.jpg', 'Còn 30 tháng bảo hành', 'Mobo', '0000-00-00 00:00:00', 1, 2000000, 1, 0),
-(20, 'Cooler Master Elite PC700 230V – V3', 'https://tandoanh.vn/wp-content/uploads/2020/11/Cooler-Master-Elite-P700-230V-%E2%80%93-V3-h6.jpg', 'Còn 29 tháng bảo hành', 'Mobo', '0000-00-00 00:00:00', 5, 800000, 3, 0);
+(1, 'GEFORCE RTX 3080', 'https://cdn.vox-cdn.com/thumbor/AgIu_n_6Ths1IVgV0namvmxdalM=/0x0:2640x1749/2070x1164/filters:focal(1128x940:1550x1362):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/67414958/twarren_rtx3080.', 'Card new vừa nhập', 'gpu', '0000-00-00 00:00:00', 10, 29000000, 1, 0),
+(2, 'GEFORCE GTX 1660 SUPER', 'https://static.digit.in/default/54ca53f4cacb16d40e19c8f2c999f87524a911ab.jpeg', 'Còn bảo hành đến 09/2023', 'gpu', '0000-00-00 00:00:00', 10, 5000000, 2, 0),
+(3, 'RADEON RX580', 'https://www.pcgamesn.com/wp-content/uploads/2018/03/AMD-RX-580-graphics-cards.jpg', 'Hết bảo hành', 'gpu', '0000-00-00 00:00:00', 20, 5000000, 2, 0),
+(4, 'CPU Intel i9-10900K', 'https://tandoanh.vn/wp-content/uploads/2020/05/Intel-Core-I9-10900K-10C-20T-20MB-3.70-5.30-GHz-Avengers-Edition-Box-chinh-hang.jpg', 'hàng chính h?ng', 'cpu', '0000-00-00 00:00:00', 5, 14000000, 3, 0),
+(5, 'CPU Intel i3-10100F', 'https://tandoanh.vn/wp-content/uploads/2020/05/intel-core-i3-comet-lake-s.jpg', 'hàng chính hảng', 'cpu', '0000-00-00 00:00:00', 20, 2000000, 3, 0),
+(6, 'CPU AMD Ryzen R-3600', 'https://tandoanh.vn/wp-content/uploads/2019/11/AMD-Ryzen%E2%84%A2-5-3600-6C12T-UPTO-4.2GHZ-Nhap-Khau.jpg.webp', 'hàng chính hảng', 'cpu', '0000-00-00 00:00:00', 2, 5000000, 3, 0),
+(7, 'Gskill TridentZ Neo RGB 16GB (2x8GB)', 'https://tandoanh.vn/wp-content/uploads/2020/10/G.SKILL-TRIDENT-Z-NEO-RGB.jpg', 'Hàng chính hãng - Bảo hành 36 tháng', 'ram', '0000-00-00 00:00:00', 10, 2650000, 4, 0),
+(8, 'G.Skill Ripjaws V 8GB ( 1x8GB )', 'https://tandoanh.vn/wp-content/uploads/2020/09/G.Skill-Ripjaws-V.jpg', 'Hết bảo hành', 'ram', '0000-00-00 00:00:00', 5, 500000, 3, 0),
+(9, 'Samsung 980 Pro M.2 2280 250GB', 'https://tandoanh.vn/wp-content/uploads/2020/10/Samsung-980-Pro-M.2-2280-250GB.jpg', 'Hàng xách tay -  Bảo hành trách nhiệm 1 tháng', 'ram', '0000-00-00 00:00:00', 10, 1800000, 1, 0),
+(10, 'Crucial BX500 3D NAND 2.5? 240GB – Sata3', 'https://tandoanh.vn/wp-content/uploads/2020/03/Crucial-BX500-3D-NAND-SATA-III-2.5-inch-240GB-02.jpg.webp', 'Vừa mua tháng 6/2020', 'ssd', '0000-00-00 00:00:00', 1, 550000, 1, 0),
+(11, 'Samsung 860 Evo 250GB 3D V-Nand – Sata3 SSD', 'https://tandoanh.vn/wp-content/uploads/2019/08/Samsung-860-Evo-3D-V-Nand.jpg', 'Còn 24 tháng bảo hành', 'ssd', '0000-00-00 00:00:00', 5, 1000000, 2, 0),
+(12, 'Western Digital Caviar Black 1TB', 'https://tandoanh.vn/wp-content/uploads/2019/08/WD-Caviar-Black-1TB-HDD.jpg', 'Vừa mua tháng 1/2020', 'hdd', '0000-00-00 00:00:00', 10, 1500000, 3, 0),
+(13, 'Western Digital Caviar Red 1TB', 'https://tandoanh.vn/wp-content/uploads/2019/08/WD-Caviar-Red-1TB-HDD.jpg.webp', 'Ổ cứng WD Red 1TB chuyên dùng cho NAS - Hàng m?i chính h?ng', 'hdd', '0000-00-00 00:00:00', 5, 1500000, 2, 0),
+(14, 'Seagate Barracuda 1TB Sata 3', 'https://tandoanh.vn/wp-content/uploads/2019/08/Seagate-Barracuda-1TB-HDD.jpg.webp', 'Hàng xách tay', 'hdd', '0000-00-00 00:00:00', 10, 800000, 2, 0),
+(15, 'Gigabyte Z490i AORUS ULTRA Rev 1.0 – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/07/Gigabyte-Z490i-AORUS-ULTRA-Socket-1200-01.jpg', 'Còn 33 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 4, 6000000, 2, 0),
+(16, 'Asus TUF GAMING B460-PLUS – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/11/Asus-TUF-GAMING-B460-PLUS-Socket-1200-01.jpg', 'Còn 30 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 2, 2000000, 2, 0),
+(17, 'MSI MAG X570 TOMAHAWK WIFI', 'https://tandoanh.vn/wp-content/uploads/2020/11/MSI-MAG-X570-TOMAHAWK-WIFI-H1.jpg.webp', 'Hàng xách tay', 'mobo', '0000-00-00 00:00:00', 5, 5000000, 1, 0),
+(18, 'ANTEC VP650P PLUS 650W 80PLUS 230V SINGLE RAIL', 'https://tandoanh.vn/wp-content/uploads/2020/11/ANTEC-VP650P-PLUS-650W-H1.jpg', 'Mua tháng 06/2020', 'mobo', '0000-00-00 00:00:00', 2, 700000, 4, 0),
+(19, 'Corsair SF600 80+ Gold SFX PSU – Fully Modular', 'https://tandoanh.vn/wp-content/uploads/2020/11/Corsair-SF600-80-Gold-SFX-PSU-Fully-Modular-01.jpg', 'Còn 30 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 1, 2000000, 1, 0),
+(20, 'Cooler Master Elite PC700 230V – V3', 'https://tandoanh.vn/wp-content/uploads/2020/11/Cooler-Master-Elite-P700-230V-%E2%80%93-V3-h6.jpg', 'Còn 29 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 5, 800000, 3, 0);
 
 -- --------------------------------------------------------
 
