@@ -75,9 +75,9 @@ INSERT INTO `item_info` (`item_id`, `item_name`, `item_picture`, `item_descripti
 (15, 'Gigabyte Z490i AORUS ULTRA Rev 1.0 – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/07/Gigabyte-Z490i-AORUS-ULTRA-Socket-1200-01.jpg', 'Còn 33 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 4, 6000000, 2, 0),
 (16, 'Asus TUF GAMING B460-PLUS – Socket 1200', 'https://tandoanh.vn/wp-content/uploads/2020/11/Asus-TUF-GAMING-B460-PLUS-Socket-1200-01.jpg', 'Còn 30 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 2, 2000000, 2, 0),
 (17, 'MSI MAG X570 TOMAHAWK WIFI', 'https://tandoanh.vn/wp-content/uploads/2020/11/MSI-MAG-X570-TOMAHAWK-WIFI-H1.jpg.webp', 'Hàng xách tay', 'mobo', '0000-00-00 00:00:00', 5, 5000000, 1, 0),
-(18, 'ANTEC VP650P PLUS 650W 80PLUS 230V SINGLE RAIL', 'https://tandoanh.vn/wp-content/uploads/2020/11/ANTEC-VP650P-PLUS-650W-H1.jpg', 'Mua tháng 06/2020', 'mobo', '0000-00-00 00:00:00', 2, 700000, 4, 0),
-(19, 'Corsair SF600 80+ Gold SFX PSU – Fully Modular', 'https://tandoanh.vn/wp-content/uploads/2020/11/Corsair-SF600-80-Gold-SFX-PSU-Fully-Modular-01.jpg', 'Còn 30 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 1, 2000000, 1, 0),
-(20, 'Cooler Master Elite PC700 230V – V3', 'https://tandoanh.vn/wp-content/uploads/2020/11/Cooler-Master-Elite-P700-230V-%E2%80%93-V3-h6.jpg', 'Còn 29 tháng bảo hành', 'mobo', '0000-00-00 00:00:00', 5, 800000, 3, 0);
+(18, 'ANTEC VP650P PLUS 650W 80PLUS 230V SINGLE RAIL', 'https://tandoanh.vn/wp-content/uploads/2020/11/ANTEC-VP650P-PLUS-650W-H1.jpg', 'Mua tháng 06/2020', 'psu', '0000-00-00 00:00:00', 2, 700000, 4, 0),
+(19, 'Corsair SF600 80+ Gold SFX PSU – Fully Modular', 'https://tandoanh.vn/wp-content/uploads/2020/11/Corsair-SF600-80-Gold-SFX-PSU-Fully-Modular-01.jpg', 'Còn 30 tháng bảo hành', 'psu', '0000-00-00 00:00:00', 1, 2000000, 1, 0),
+(20, 'Cooler Master Elite PC700 230V – V3', 'https://tandoanh.vn/wp-content/uploads/2020/11/Cooler-Master-Elite-P700-230V-%E2%80%93-V3-h6.jpg', 'Còn 29 tháng bảo hành', 'psu', '0000-00-00 00:00:00', 5, 800000, 3, 0);
 
 -- --------------------------------------------------------
 
