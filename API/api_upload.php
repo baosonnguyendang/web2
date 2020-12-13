@@ -31,7 +31,7 @@
             // Check connection
             if ($mysqli->connect_error) {
                 echo "Unable to connect to db";
-                sleep(5);
+                // sleep(10);
                 header("Location: ../upload.php");
                 exit();
             }
@@ -40,7 +40,7 @@
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $datetime = date('Y-m-d H:i:s');
             $piture_path = "./images/item/".$target_name.$num.".".$imageFileType;
-            $sql = "INSERT INTO item_info (`item_name`, `item_picture`, `item_description`, `type`, `sell_date`, `stock`, `price`, `is_delete`, `seller_id`) VALUES ('"
+            $sql = "INSERT INTO item_info(item_name, item_picture, item_description, type, sell_date, stock, price, is_delete, seller_id) VALUES ('"
                     .$_POST['item_name']."', '"
                     .$piture_path."', '"
                     .$_POST['item_description']."', '"
@@ -53,15 +53,17 @@
             if($mysqli->query($sql)){
                 header("Location: ../upload.php");
             } else {
-                echo "SQL fail to insert";
-                sleep(5);
+                // echo "SQL fail to insert";
+                // sleep(5);
                 header("Location: ../upload.php");
             }
         } else {
-            echo "Sorry, there was an error uploading your file.";
-            sleep(5);
+            // echo "Sorry, there was an error uploading your file.";
+            // sleep(5);
             header("Location: ../upload.php");
             exit();
         }
     }
+    // print $sql;
+    $mysqli -> close();
 ?>

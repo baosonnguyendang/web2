@@ -237,7 +237,7 @@
                 html_string += `
                     <div class="card" style="min-width: 180px;">
                         <img src='` + item[2] + `' alt=''>
-                        <div class="container">
+                        <div class="container" style="position: absolute; bottom: 0;">
                             <p style='font-size: 13px;'>` + item[1] + `</p>
                             <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
                         </div>
