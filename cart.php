@@ -77,10 +77,29 @@
                         <p>Ổ cứng SSD Samsung 860 Evo 500GB 2.5" SATA 3 - MZ-76E500BW</p>
                         <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;'>Xóa sản phẩm</p>
                     </div>
+                    <div class='unit3'>
+                        <p style='font-size: 1.25rem'><b>20.000đ</b></p>
+                    </div>
                 </div>
             </div>
             <div id='checkout2'>
-                <p>b</p>
+                <div id='checkout3'>
+                    <div style='padding-bottom: 20px; border-bottom: 1px solid #f1f1f1'>
+                        <div class='money'>
+                            <span>Tổng tiền</span>
+                            <span><b id='tong'></b></span>
+                        </div>
+                        <div class='money'>
+                            <span>Giảm giá</span>
+                            <span><b id='giam'></b></span>
+                        </div>
+                    </div>
+                    <div class='money' style='padding-top: 10px'>
+                        <span style='line-height: 30px;'>Thành tiền</span>
+                        <span style='font-size: 20px; line-height: 30px; color: red'><b id='thanh'></b></span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary"><b>Đặt hàng thôi</b></button>
             </div>
         </div>
     </div>
@@ -136,6 +155,13 @@
             }, function(){
             $("#drop > ul").css("display","none")
         })  
+
+        // tinh tong tien
+        var a = 20000;
+        var b = 0;
+        document.getElementById('tong').innerHTML = a + 'đ'
+        document.getElementById('giam').innerHTML = b + 'đ'
+        document.getElementById('thanh').innerHTML = a-b + 'đ'
     </script>
 </body>
 </html>
