@@ -486,6 +486,7 @@ html {
 }
 
 #checkout h4 {
+    margin-top: 10px;
     text-transform: uppercase;
 }
 
@@ -495,10 +496,19 @@ html {
     border-radius: 5px;
     margin-right: 15px;
     padding: 20px;
+    height: 100%;
 }
 
 #checkout2 {
     width: 25%;
+}
+
+#checkout2 button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#checkout3 {
     background-color: white;
     border-radius: 5px;
     padding: 20px;
@@ -513,10 +523,20 @@ html {
     height: fit-content;
     width: 20%;
     padding: 10px;
-    border: 1px solid #aaa8a8;
+    border: 1px solid #cfcccc;
     border-radius: 5px;
 }
 
 .unit2 {
-    margin-left: 10px;
+    margin: 0 10px;
+    width: 67%;
+}
+
+.unit3 {
+    width: 12%;
+}
+
+.money {
+    display: flex;
+    justify-content: space-between;
 }
