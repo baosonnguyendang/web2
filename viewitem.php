@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASH</title>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,7 +40,7 @@
         <div id='header'>
             <img src='./images/logo.jpg' alt=''>
             <div id='slogan'>
-                <p style='font-family: cursive; font-size: 36px; color:red;'><a href='trangchu.php'><b>HASH </b></a></p>
+                <p style='font-family: cursive; font-size: 36px; color:red;'><a href='./trangchu.php'><b>HASH </b></a></p>
             </div>
             <div id='cart'>
                 <div class='cart1'>
@@ -50,7 +50,7 @@
                 <div class='cart1'>
                     <a><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
                 </div>
-                <span style='cursor: pointer;'><b> Giỏ hàng</b></span>
+                <a href='./cart.php' style='text-decoration: none; color: black'><span style='cursor: pointer;'><b> Giỏ hàng</b></span></a>
             </div>
             <div id='bar'>
                 <a><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
@@ -61,15 +61,21 @@
         </div>
         <div id='header2'>
             <ul id='menu' class='menu'>
-                <li style='width: 120px;'><a href='trangchu.php'>Trang chủ</a></li>
-                <li style='width: 140px;' id='drop'>
-                    <a href='ourproducts.html'>Danh mục <span style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></span></a>
-                    <ul id='category'>
+                <li style='width: 120px;'><a href='./trangchu.php'>Trang chủ</a></li>
+                <li style='width: 140px;' class='drop'>
+                    <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class='category'>
                         <li><a href="#">SSD</a></li>
                         <li><a href="#">RAM</a></li>
                     </ul>
                 </li>
-                <li style='width: 120px;'><a href='upload.php'>Đăng bán</a></li>
+                <li style='width: 120px;' class='drop'>
+                    <span>Bán hàng <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        <ul class='category'>
+                            <li><a href="./upload.php">Đăng bán</a></li>
+                            <li><a href="./manage.php">Quản lý</a></li>
+                        </ul>
+                </li>
                 <li style='width: 140px;'><a href='careers.html'>Theo dõi đơn</a></li>
                 <li style='padding: 0 20px;'><a href='contactus.html'>Về chúng tôi</a></li>
             </ul>
@@ -85,7 +91,7 @@
         </div>
     </div>
     <div id='ssd' class='ssd'>
-        <div>
+        <div id='ssd0'>
             <div id='ssd1'>
                 <div id='ssd3'>
                     <img src="<?php echo $item['item_data']['item_picture'];?>" alt=''>
@@ -122,9 +128,24 @@
                 </div>
             </div>
         </div>
+        <div id='ssd10'>
+            <div>
+                <h4>Nhận xét sản phẩm</h4>
+                <div class='feedback'>
+                    <p style='margin-bottom: 2px; font-size: 1.125rem'>Duy An</p>
+                    <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào </p>
+                    <p style='margin-bottom: 2px'>Xịn</p>
+                </div>
+                <div class='feedback'>
+                    <p style='margin-bottom: 2px; font-size: 1.125rem'>Duy An</p>
+                    <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào </p>
+                    <p style='margin-bottom: 2px'>Xịn</p>
+                </div>
+            </div>
+        </div>
     </div>
     
-    <div class='footer' id='footer1'>
+    <div class='footer'>
         <div id='f1'>
             <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
             <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
@@ -170,11 +191,12 @@
             }
         })
 
-        $("#drop").hover(function(){
-            $("#drop > ul").css("display","block")
+        // dropdown menu
+        $(".drop").hover(function(){
+            $(this).children("ul").css("display","block")
             }, function(){
-            $("#drop > ul").css("display","none")
-        })  
+            $(this).children("ul").css("display","none")
+        }) 
     </script>
 </body>
 </html>
