@@ -130,7 +130,7 @@ INSERT INTO `user_info` (`user_id`, `username`, `password`, `email`, `name`, `ad
 (1, 'annguyen1412', '123456789', 'annguyen1412@gmail.com', 'Nguyen Pham Duy An', 'HCM'),
 (2, 'hoangtruong99', 'hoangtruong', 'hoangtruong99@gmail.com', 'Truong Minh Hoang', 'HCM'),
 (3, 'baosonnguyen', '9874563210', 'baosonnguyen@gmail.com', 'Nguyen Dang Bao Son', 'HCM'),
-(4, 'huyduong99', 'huyduong', 'huyduong99', 'Duong Quang Huy', 'HCM');
+(4, 'huyduong99', 'huyduong', 'huyduong99@gmail.com', 'Duong Quang Huy', 'HCM');
 
 --
 -- Indexes for dumped tables
