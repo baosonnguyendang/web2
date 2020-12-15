@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASH</title>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,7 +21,7 @@
         <div id='header'>
             <img src='./images/logo.jpg' alt=''>
             <div id='slogan'>
-                <p style='font-family: cursive; font-size: 36px; color:red;'><a href='trangchu.php'><b>HASH </b></a></p>
+                <p style='font-family: cursive; font-size: 36px; color:red;'><a href='./trangchu.php'><b>HASH </b></a></p>
             </div>
             <div id='cart'>
                 <div class='cart1'>
@@ -31,7 +31,7 @@
                 <div class='cart1'>
                     <a><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
                 </div>
-                <span style='cursor: pointer;'><b> Giỏ hàng</b></span>
+                <a href='./cart.php' style='text-decoration: none; color: black'><span style='cursor: pointer;'><b> Giỏ hàng</b></span></a>
             </div>
             <div id='bar'>
                 <a><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
@@ -42,22 +42,28 @@
         </div>
         <div id='header2'>
             <ul id='menu' class='menu'>
-                <li style='width: 120px;'><a href='aboutus.html'>Trang chủ</a></li>
-                <li style='width: 140px;' id='drop'>
-                    <a href='ourproducts.html'>Danh mục <span style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></span></a>
-                    <ul id='category'>
+                <li style='width: 120px;'><a href='./trangchu.php'>Trang chủ</a></li>
+                <li style='width: 140px;' class='drop'>
+                    <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class='category'>
                         <li><a href="#">SSD</a></li>
                         <li><a href="#">RAM</a></li>
                     </ul>
                 </li>
-                <li style='width: 120px;'><a href='upload.php'>Đăng bán</a></li>
-                <li style='width: 140px;'><a href='careers.html'>Theo dõi đơn</a></li>
-                <li style='padding: 0 20px;'><a href='contactus.html'>Về chúng tôi</a></li>
+                <li style='width: 120px;' class='drop'>
+                    <span>Bán hàng <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        <ul class='category'>
+                            <li><a href="./upload.php">Đăng bán</a></li>
+                            <li><a href="./manage.php">Quản lý</a></li>
+                        </ul>
+                </li>
+                <li style='width: 140px;'><a href=''>Theo dõi đơn</a></li>
+                <li style='padding: 0 20px;'><a href=''>Về chúng tôi</a></li>
             </ul>
             <div id='user'>
                 <?php
                     if(isset($_SESSION['username'])){
-                        echo '<a href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>'.$_SESSION['username'].'</span></a>';
+                        echo '<i class="fa fa-user fa-lg" aria-hidden="true"></i><span style="cursor: context-menu;">'.$_SESSION['username'].'</span><span>|</span><span><a href="#">Đăng xuất</a></span>';
                     } else {
                         echo '<a href="./login.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>';
                     }
@@ -142,10 +148,11 @@
             }
         })
 
-        $("#drop").hover(function(){
-            $("#drop > ul").css("display","block")
+        // dropdown menu
+        $(".drop").hover(function(){
+            $(this).children("ul").css("display","block")
             }, function(){
-            $("#drop > ul").css("display","none")
+            $(this).children("ul").css("display","none")
         })  
 
     </script>

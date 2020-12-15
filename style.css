@@ -66,6 +66,12 @@ html {
     
 }
 
+.menu > li span, .menu2 li span {
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+
 #cart {
     float: right;
 }
@@ -113,15 +119,15 @@ html {
     padding-left: 10px;
 }
 
-#drop {
+.drop {
     position: relative;
 }
 
-#drop:hover {
+.drop:hover {
     display: block;
 }
 
-#drop ul {
+.drop ul {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -132,11 +138,11 @@ html {
     padding-left: 0;
 }
 
-#drop ul li a{
+.drop ul li a{
     color: black;
 }
 
-#drop ul li:hover {
+.drop ul li:hover {
     background-color: #f1f1f1;
 }
 
@@ -407,7 +413,7 @@ html {
     padding: 10px 5vw;
 }
 
-#ssd > div {
+#ssd0 {
     display: flex;
     padding: 1rem;
 }
@@ -451,6 +457,7 @@ html {
 }
 
 #ssd9 {
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -477,6 +484,30 @@ html {
 #ssd4 h4{
     text-transform: uppercase;
     font-size: 1.25rem;
+}
+
+#ssd10 {
+    padding: 1rem;
+}
+
+#ssd10 > div {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#ssd10 h4 {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.feedback {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #f4f4f4;
 }
 
 /* cart */
@@ -540,4 +571,42 @@ html {
 .money {
     display: flex;
     justify-content: space-between;
+}
+
+/* quan li ban san pham */
+#manage {
+    background-color: rgb(241,240,241);
+    padding: 10px 5vw;
+}
+
+#manage h4 {
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+#manage > div {
+    padding: 1rem 0;
+}
+
+#manage-table {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+}
+
+#manage-table thead {
+    line-height: 50px;
+}
+
+#manage-table td, th {
+    padding: 0 20px;
+}
+
+#manage-table tbody tr {
+    height: 50px;
+    padding: 10px 0;
+    border-top: 1px solid #cfcccc;
+    border-bottom: 1px solid #cfcccc;
 }
