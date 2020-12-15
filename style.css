@@ -516,6 +516,7 @@ html {
 
 .unit {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .unit1 {

@@ -103,7 +103,7 @@
                         <span>Còn lại: <?php echo $item['item_data']['stock'];?></span>
                         <div id='ssd9'>
                             <button type="button" class="btn btn-primary"><b>MUA LUÔN</b></button>
-                            <button type="button" class="btn btn-secondary"><b>THÊM VÀO GIỎ ĐÃ</b></button>
+                            <button type="button" class="btn btn-secondary" onclick="add_to_cart(this)"><b>THÊM VÀO GIỎ ĐÃ</b></button>
                         </div>
                     </div>
                     <!-- <div id='ssd11'>
@@ -175,13 +175,39 @@
             }, function(){
             $("#drop > ul").css("display","none")
         })  
+
+        var item_detail = <?php echo json_encode($item);?>;
+        var user_id = <?php echo $_SESSION['user_id']; ?>;
+        // console.log(user_id)
+        // console.log(item_detail)
+        function add_to_cart(element){
+            console.log(element)
+            $.ajax({
+                type: "POST",
+                url: "./API/api_set_cookie.php",
+                data: {item : item_detail['item_data'], cookie_case : "0"},
+                success: function(response){
+                    result = JSON.parse(response)
+                    if(result['cookie_set'] == "success"){
+                        alert("Thêm vào giỏ hàng thành công")
+                    }
+                }
+            })
+        }
+        //log cookie ra console.log
+        window.onload = function(){
+            $.ajax({
+                type: "GET",
+                url: "./API/api_set_cookie.php",
+                success: function(response){
+                    result = JSON.parse(response)
+                    console.log(result['cookie'])
+                }
+            })
+        }
     </script>
 </body>
 </html>
-<script>
-    logger = <?php echo json_encode($item);?>;
-    console.log(logger)
-</script>
 <?php
         $mysqli -> close();
     } else {

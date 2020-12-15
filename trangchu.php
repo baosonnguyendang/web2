@@ -255,7 +255,7 @@
                 $.ajax({
                     type: "GET",
                     url: "./API/api_get_item_data.php",
-                    data: {'type':value},
+                    data: {'type':value, 'get_case':0},
                     success: function(response){
                         result = JSON.parse(response)
                         // console.log(result['item_data'])

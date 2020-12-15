@@ -19,9 +19,17 @@
     }
 
     if($_SERVER['REQUEST_METHOD']=="GET"){
-        $result['type'] = $_GET['type'];
+        $result['get_data'] = $_GET;
+        switch($_GET['get_case']){
+            case 0:
+                $result['type'] = $_GET['type'];
 
-        $sql = !empty($result['type'])? "SELECT * FROM item_info WHERE type='".$result['type']."'" : "SELECT * FROM item_info ORDER BY type ASC";
+                $sql = !empty($result['type'])? "SELECT * FROM item_info WHERE type='".$result['type']."'" : "SELECT * FROM item_info ORDER BY type ASC";
+                break;
+            case 1:
+                $sql = "SELECT * FROM item_info WHERE item_id ='" . $_GET['item_id'] . "'";
+        }
+        
         if ($mysqli->query($sql)) {
             $result['sql_status'] = "success";
             $result['sql_log'] = $sql;

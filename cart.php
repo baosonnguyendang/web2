@@ -69,18 +69,18 @@
         <h4>Giỏ hàng</h4>
         <div>
             <div id='checkout1'>
-                <div class='unit'>
+                <!-- <div class='unit'>
                     <div class='unit1'>
                         <img src='./images/sp1.jpg' alt='' style='width:100%; height: auto'>
                     </div>
                     <div class='unit2'>
-                        <p>Ổ cứng SSD Samsung 860 Evo 500GB 2.5" SATA 3 - MZ-76E500BW</p>
+                        <p>Ổ cứng SSD Samsung 860 Evo 500GB 2.5" SATA 3 - MZ-76E500BW<br>Số lượng: 1</p>
                         <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;'>Xóa sản phẩm</p>
                     </div>
                     <div class='unit3'>
                         <p style='font-size: 1.25rem'><b>20.000đ</b></p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div id='checkout2'>
                 <div id='checkout3'>
@@ -156,12 +156,112 @@
             $("#drop > ul").css("display","none")
         })  
 
-        // tinh tong tien
-        var a = 20000;
-        var b = 0;
-        document.getElementById('tong').innerHTML = a + 'đ'
-        document.getElementById('giam').innerHTML = b + 'đ'
-        document.getElementById('thanh').innerHTML = a-b + 'đ'
+        function fill_data(name, price, id, image, number){
+            // html_string = `
+            // <div class='unit'>
+            //     <div class='unit1'>
+            //         <img src='` + image + `' alt='' style='width:100%; height: auto'>
+            //     </div>
+            //     <div class='unit2'>
+            //         <a href='./viewitem.php?item_id=` + id + `'>` + name + `</a><br>Số lượng: ` + number + `
+            //         <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;'>Xóa sản phẩm</p>
+            //     </div>
+            //     <div class='unit3'>
+            //         <p style='font-size: 1.25rem'><b>` + price + `đ</b></p>
+            //     </div>
+            // </div>
+            // `
+            html_string = `
+            <div class='unit'>
+                <div class='unit1'>
+                    <img src='` + image + `' alt='' style='width:100%; height: auto'>
+                </div>
+                <div class='unit2'>
+                    <a href='./viewitem.php?item_id=` + id + `'>` + name + `</a>
+                    <p style='font-size: 0.875rem; cursor: pointer; color:#00AFF0;' onclick='remove_cart_item(` + id + `)'>Xóa sản phẩm</p>
+                </div>
+                <div class='unit3'>
+                    <p style='font-size: 1.25rem'><b>` + price + `đ</b></p>
+                </div>
+            </div>
+            `
+            $('#checkout1').append(html_string)
+        }
+
+        function load_data(){
+            // tinh tong tien
+            var total_money = parseInt(0);
+            var sale_money = parseInt(0);
+
+            var cart = <?php echo isset($_COOKIE['cart'])? json_encode($_COOKIE['cart']) : 0 ?>;
+            // console.log(cart)
+            if(cart){
+                current_user_cart = JSON.parse(cart)[<?php echo $_SESSION['user_id']?>]
+                // console.log(Object.keys(current_user_cart).length)
+                if(Object.keys(current_user_cart).length){
+                    $.each(current_user_cart, function(key, value){
+                        // console.log("key: "+key+" value: "+value)
+                        $.ajax({
+                            type: "GET",
+                            async: false,
+                            url: "./API/api_get_item_data.php",
+                            data: {'get_case' : 1, 'item_id' : key},
+                            success: function(response){
+                                result = JSON.parse(response)
+                                // console.log(result)
+                                item = result['item_data'][0]
+                                fill_data(item[1], Number(item[7]).toLocaleString('en') , item[0], item[2], value)
+                                total_money += parseInt(item[7])
+                                // console.log(item[7])
+                                // console.log(total_money)
+                            }
+                        })
+                    })
+                } else {
+                    html_string = `
+                        <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
+                    `
+                    $('#checkout1').append(html_string)
+                }
+            } else {
+                html_string = `
+                    <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
+                `
+                $('#checkout1').append(html_string)
+            }
+
+            // console.log(total_money)
+            document.getElementById('tong').innerHTML = Number(total_money).toLocaleString('en') + 'đ'
+            document.getElementById('giam').innerHTML = Number(sale_money).toLocaleString('en') + 'đ'
+            document.getElementById('thanh').innerHTML = Number(total_money - sale_money).toLocaleString('en') + 'đ'
+        } 
+
+
+        window.onload= load_data()
+        $.ajax({
+            type: "GET",
+            url: "./API/api_set_cookie.php",
+            async: false,
+            success: function(response){
+                result = JSON.parse(response)
+                console.log(result)
+            }
+        })
+
+        function remove_cart_item(item_id){
+            // console.log(item_id)
+            $.ajax({
+                type: "POST",
+                url: "./API/api_set_cookie.php",
+                data: {'item_id' : item_id , 'cookie_case' : 1},
+                async: false,
+                success: function(response){
+                    result = JSON.parse(response)
+                    console.log(result)
+                    location.reload();
+                }
+            })
+        }
     </script>
 </body>
 </html>
