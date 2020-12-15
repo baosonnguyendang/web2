@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if(isset($_SESSION['user_id'])){
 ?>
 
 <!DOCTYPE html>
@@ -272,3 +273,8 @@
     </script>
 </body>
 </html>
+<?php
+    } else {
+        header("Location: login.php");
+    }
+?>
