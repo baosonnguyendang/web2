@@ -45,7 +45,7 @@
         </div>
         <div id='header2'>
             <ul id='menu' class='menu'>
-                <li style='width: 120px;'><a href='aboutus.html'>Trang chủ</a></li>
+                <li style='width: 120px;'><a href='trangchu.php'>Trang chủ</a></li>
                 <li style='width: 140px;' id='drop'>
                     <a href='ourproducts.html'>Danh mục <span style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></span></a>
                     <ul id='category'>
@@ -60,7 +60,7 @@
             <div id='user'>
                 <?php
                     if(isset($_SESSION['username'])){
-                        echo '<a href="#"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>'.$_SESSION['username'].'</span></a>';
+                        echo '<i class="fa fa-user fa-lg" aria-hidden="true"></i><span style="cursor: context-menu;">'.$_SESSION['username'].'</span><span>|</span><span><a href="#">Đăng xuất</a></span>';
                     } else {
                         echo '<a href="./login.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>';
                     }
