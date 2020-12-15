@@ -24,12 +24,19 @@
             case 0:
                 $result['type'] = $_GET['type'];
 
-                $sql = !empty($result['type'])? "SELECT * FROM item_info WHERE type='".$result['type']."'" : "SELECT * FROM item_info ORDER BY type ASC";
+                $sql = !empty($result['type'])? "SELECT * FROM item_info WHERE type='".$result['type']."' AND is_delete = 0" : "SELECT * FROM item_info AND is_delete = 0 ORDER BY type ASC";
                 break;
             case 1:
-                $sql = "SELECT * FROM item_info WHERE item_id ='" . $_GET['item_id'] . "'";
+                $sql = "SELECT * FROM item_info 
+                        WHERE item_id ='" . $_GET['item_id'] . "' AND is_delete = 0";
+                break;
+            case 2:
+                $seller_id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM item_info 
+                        WHERE seller_id = '" . $seller_id . "' AND is_delete = 0";
+                break;
         }
-        
+
         if ($mysqli->query($sql)) {
             $result['sql_status'] = "success";
             $result['sql_log'] = $sql;

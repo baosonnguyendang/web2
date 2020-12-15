@@ -86,12 +86,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td style='width: 15vw'>1</td>
-                            <td style='width: 30vw; text-align: left'>1</td>
+                            <td style='width: 30vw; text-align: left'><a href=""></a></td>
                             <td style='width: 15vw'>29/2/2019</td>
                             <td style='width: 20vw'><button style='border: none; background: none;'>Hủy bán</button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -150,13 +150,69 @@
             }, function(){
             $(this).children("ul").css("display","none")
         }) 
+        console.log($('#manage-table tbody'))
 
-        // tinh tong tien
-        var a = 20000;
-        var b = 0;
-        document.getElementById('tong').innerHTML = a + 'đ'
-        document.getElementById('giam').innerHTML = b + 'đ'
-        document.getElementById('thanh').innerHTML = a-b + 'đ'
+        function fill_data(item_id, item_name, item_date){
+            html_string = `
+                <tr>
+                    <td style='width: 15vw'>` + item_id + `</td>
+                    <td style='width: 30vw; text-align: left'><a href="./viewitem.php?item_id=` + item_id + `">` + item_name + `</a></td>
+                    <td style='width: 15vw'>` + item_date + `</td>
+                    <td style='width: 20vw'><button class='btn btn-danger' onclick='remove_item(this)'>Hủy bán</button></td>
+                </tr>
+            `
+            $('#manage-table tbody').append(html_string)
+        }
+
+        function reformat_date(date_var){
+            year = date_var.substring(0,4)
+            month = date_var.substring(5,7)
+            day = date_var.substring(8,10)
+            return day + "/" + month + "/" + year
+        }
+
+        function load_data(){
+            $.ajax({
+                type: "GET",
+                url: "./API/api_get_item_data.php",
+                async: false,
+                data:{'get_case' : 2},
+                success: function(response){
+                    result = JSON.parse(response)
+                    // console.log(result)
+                    item_list = result['item_data']
+                    console.log(item_list)
+                    $.each(item_list, function(key, item){
+                        date_time = reformat_date(item[5])
+                        // myDate = new Date(date_time).toISOString().slice(0,10)
+                        console.log(date_time)
+                        // console.log(myDate)
+                        fill_data(item[0], item[1], item[5])
+                    })
+                }
+            })
+        }
+
+        function remove_item(element){
+            item_id = element.parentNode.parentNode.children[0].textContent
+            confirm_text = "Bạn có chắc muốn xóa sản phẩm này?"
+            if(confirm(confirm_text)){
+                $.ajax({
+                    type: "POST",
+                    url: "./API/api_delete_item.php",
+                    data: {'item_id' : item_id},
+                    success: function(response){
+                        result = JSON.parse(response)
+                        console.log(result)
+                    }
+                })
+                $('#manage-table tbody').html('')
+                load_data()
+            }
+        }
+
+        window.onload = load_data()
+
     </script>
 </body>
 </html>
