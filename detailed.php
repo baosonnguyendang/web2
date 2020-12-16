@@ -74,6 +74,7 @@
 
     <div id='detailed'>
         <h4>Chi tiết đơn hàng</h4>
+        <p>A</p>
     </div>
     
     <div class='footer' id='footer1'>
