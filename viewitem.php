@@ -105,12 +105,23 @@
                     <div id='ssd7'>
                         <span><?php echo $item['item_data']['item_name'];?></span>
                         <h3><?php echo number_format($item['item_data']['price']);?> VNĐ</h3>
-                        <span>Người bán: <?php echo $item['item_data']['username'];?></span><br>
-                        <span>Còn lại: <?php echo $item['item_data']['stock'];?></span>
-                        <div id='ssd9'>
-                            <button type="button" class="btn btn-primary"><b>MUA LUÔN</b></button>
-                            <button type="button" class="btn btn-secondary" onclick="add_to_cart(this)"><b>THÊM VÀO GIỎ ĐÃ</b></button>
-                        </div>
+                        <span>Người bán: <?php echo $item['item_data']['username'];?></span><br><br>
+                        <?php
+                            if(!$item['item_data']['is_delete']){
+                        ?>
+                            <div id='ssd9'>
+                                <button type="button" class="btn btn-primary"><b>MUA LUÔN</b></button>
+                                <button type="button" class="btn btn-secondary" onclick="add_to_cart(this)"><b>THÊM VÀO GIỎ ĐÃ</b></button>
+                            </div>
+                        <?php
+                            } else {
+                        ?>
+                            <div>
+                                <span class="badge badge-danger">SẢN PHẨM ĐÃ NGỪNG KINH DOANH</span>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <!-- <div id='ssd11'>
                         <ul>
