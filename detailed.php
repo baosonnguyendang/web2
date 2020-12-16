@@ -74,10 +74,51 @@
 
     <div id='detailed'>
         <h4>Chi tiết đơn hàng</h4>
-        <p>A</p>
+        <div>
+            <div id='more-detailed'>
+                <div id='status'>
+                    <!-- <div>
+                        <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <span style='margin-left: 10px;'><b>Đơn đã được giao</b></span> -->
+                    <div>
+                        <i class="fa fa-truck fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <span style='margin-left: 10px;'><b>Đơn đang được vận chuyển</b></span>
+                </div>
+                <div id='status2'>
+                    <h4>Thông tin người nhận</h4>
+                    <p>HUY \/\/ | |3 |_|</p>
+                    <p><span>Địa chỉ: </span><span>135 Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1</span></p>
+                    <p><span>SĐT: </span><span>113</span></p>
+                </div>
+                <div id='status3'>
+                    <h4>Sản phẩm</h4>
+                    <p>Cạc việt teo 20k</p>
+                    <table>
+                        <tr>
+                            <td style='width: 25vw; padding-right: 10px'>Tiền hàng (đã trừ khuyến mãi):</td>    
+                            <td style='text-align: right'>20.000đ</td>                      
+                        </tr>
+                        <tr>
+                            <td style='width: 25vw; padding-right: 10px'>Phí vận chuyển:</td>
+                            <td style='text-align: right'>200.000đ</td>
+                        </tr>
+                        <tr style='border-top: 1px solid #7e7a7a;'>
+                            <td style='width: 25vw; padding-right: 10px'>Tổng tiền:</td>
+                            <td style='text-align: right; color: red;'>220.000đ</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id='exchange'>
+                    <button type="button" class="btn btn-primary">Xác nhận đã nhận hàng</button>
+                    <button type="button" class="btn btn-primary">Hoàn tiền</button>
+                </div>  
+            </div>
+        </div>
     </div>
     
-    <div class='footer' id='footer1'>
+    <div class='footer'>
         <div id='f1'>
             <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
             <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
