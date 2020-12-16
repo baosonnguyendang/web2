@@ -181,11 +181,11 @@
                     result = JSON.parse(response)
                     // console.log(result)
                     item_list = result['item_data']
-                    console.log(item_list)
+                    // console.log(item_list)
                     $.each(item_list, function(key, item){
                         // date_time = reformat_date(item[5])
                         // myDate = new Date(date_time).toISOString().slice(0,10)
-                        console.log(date_time)
+                        // console.log(date_time)
                         // console.log(myDate)
                         fill_data(item[0], item[1], item[5])
                     })
@@ -204,7 +204,7 @@
                     data: {'item_id' : item_id},
                     success: function(response){
                         result = JSON.parse(response)
-                        console.log(result)
+                        // console.log(result)
                     }
                 })
                 $('#manage-table tbody').html('')
