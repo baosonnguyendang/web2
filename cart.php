@@ -90,6 +90,60 @@
                 </div> -->
             </div>
             <div id='checkout2'>
+                <div id='checkout2-1'>
+                    <div style='padding-bottom: 20px; border-bottom: 1px solid #f1f1f1'>
+                        <div id='change-address'>
+                            <h4>Thông tin người nhận</h4>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <u style='color: blue;'>Thay đổi</u>
+                            </button>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Thông tin người nhận</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="fname">Tên người nhận:</label>
+                                                <input style='width: 50%;' type="text" id="name" name="name" value=""><br><br>
+                                            </div>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="lname">SĐT:</label>
+                                                <input style='width: 50%;' type="text" id="phone" name="phone" value=""><br><br>
+                                            </div>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="birthday">Tỉnh/thành:</label>
+                                                <input style='width: 50%;' type="text" id="province" name="province" value=""><br><br>
+                                            </div>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="birthday">Quận/huyện:</label>
+                                                <input style='width: 50%;' type="text" id="district" name="district" value=""><br><br>
+                                            </div>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="birthday">Phường/xã:</label>
+                                                <input style='width: 50%;' type="text" id="ward" name="ward" value=""><br><br>
+                                            </div>
+                                            <div>
+                                                <label style='width: 30%; display: inline-block;' for="birthday">Số nhà, tên đường:</label>
+                                                <input style='width: 50%;' type="text" id="street" name="street" value=""><br><br>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                        <button type="button" class="btn btn-primary">Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id='checkout3'>
                     <div style='padding-bottom: 20px; border-bottom: 1px solid #f1f1f1'>
                         <div class='money'>
