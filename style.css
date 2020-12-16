@@ -718,8 +718,7 @@ html {
 
 #exchange button {
     width: 30%;
-    background-color: #ac6f6f;
-    border-color: #ac6f6f;
+    margin: 0 15px;
 }
 
 #status3 {

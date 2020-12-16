@@ -179,11 +179,11 @@
                     html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-danger">` + status + `</span></h3></td>`;
                     break;
                 default:
-                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-info">` + status + `</span></h3></td>`;
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-warning">` + status + `</span></h3></td>`;
             }
 
             html_string += `
-                    <td style='width: 20vw'><button type="button" class="btn btn-info">Chi tiết đơn hàng</button></td>
+                    <td style='width: 20vw'><button type="button" class="btn btn-info" onclick="order_detail(` + order_id + `)">Chi tiết đơn hàng</button></td>
                 </tr>
             `
 
@@ -210,6 +210,23 @@
                     })
                 }
             })
+        }
+
+        function order_detail(order_id){
+            var form = document.createElement("form");
+            var id = document.createElement("input"); 
+
+            form.method = "GET";
+            form.action = "detailed.php";   
+
+            id.value=order_id;
+            id.name="order_id";
+            id.type = "hidden"
+            form.appendChild(id);  
+
+            document.body.appendChild(form);
+
+            form.submit();
         }
 
         window.onload = load_data()
