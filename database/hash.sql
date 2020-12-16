@@ -90,7 +90,8 @@ CREATE TABLE `order_info` (
   `price` int(11) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   `status` varchar(30) DEFAULT NULL,
-  `buyer_id` int(11) DEFAULT NULL
+  `buyer_id` int(11) DEFAULT NULL,
+  `deliver_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
