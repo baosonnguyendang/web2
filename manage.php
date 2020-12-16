@@ -164,12 +164,12 @@
             $('#manage-table tbody').append(html_string)
         }
 
-        function reformat_date(date_var){
-            year = date_var.substring(0,4)
-            month = date_var.substring(5,7)
-            day = date_var.substring(8,10)
-            return day + "/" + month + "/" + year
-        }
+        // function reformat_date(date_var){
+        //     year = date_var.substring(0,4)
+        //     month = date_var.substring(5,7)
+        //     day = date_var.substring(8,10)
+        //     return day + "/" + month + "/" + year
+        // }
 
         function load_data(){
             $.ajax({
@@ -183,7 +183,7 @@
                     item_list = result['item_data']
                     console.log(item_list)
                     $.each(item_list, function(key, item){
-                        date_time = reformat_date(item[5])
+                        // date_time = reformat_date(item[5])
                         // myDate = new Date(date_time).toISOString().slice(0,10)
                         console.log(date_time)
                         // console.log(myDate)
