@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASH</title>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=<?=time();?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -154,15 +154,20 @@
                             <span>Giảm giá</span>
                             <span><b id='giam'></b></span>
                         </div>
+                        <div class='money'>
+                            <span>Phí ship</span>
+                            <span><b id='ship'></b></span>
+                        </div>
                     </div>
                     <div class='money' style='padding-top: 10px'>
                         <span style='line-height: 30px;'>Thành tiền</span>
                         <span style='font-size: 20px; line-height: 30px; color: red'><b id='thanh'></b></span>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary"><b>Đặt hàng thôi</b></button>
+                <button type="button" class="btn btn-primary" id="order-btn"><b>Đặt hàng thôi</b></button>
             </div>
         </div>
+        <input type="hidden" name="price" id="price">
     </div>
     
     <div class='footer' id='footer1'>
@@ -254,6 +259,7 @@
             // tinh tong tien
             var total_money = parseInt(0);
             var sale_money = parseInt(0);
+            var ship_money = parseInt(20000);
 
             var cart = <?php echo isset($_COOKIE['cart'])? json_encode($_COOKIE['cart']) : 0 ?>;
             // console.log(cart)
@@ -279,23 +285,28 @@
                             }
                         })
                     })
+                    $('#order-btn').prop('disabled', false)
                 } else {
                     html_string = `
                         <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
                     `
                     $('#checkout1').append(html_string)
+                    $('#order-btn').prop('disabled', true)
                 }
             } else {
                 html_string = `
                     <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
                 `
                 $('#checkout1').append(html_string)
+                $('#order-btn').prop('disabled', true)
             }
 
             // console.log(total_money)
             document.getElementById('tong').innerHTML = Number(total_money).toLocaleString('en') + 'đ'
             document.getElementById('giam').innerHTML = Number(sale_money).toLocaleString('en') + 'đ'
-            document.getElementById('thanh').innerHTML = Number(total_money - sale_money).toLocaleString('en') + 'đ'
+            document.getElementById('ship').innerHTML = Number(ship_money).toLocaleString('en') + 'đ'
+            document.getElementById('thanh').innerHTML = Number(total_money - sale_money + ship_money).toLocaleString('en') + 'đ'
+            $('#price').val(total_money - sale_money + ship_money)
         } 
 
 
@@ -324,6 +335,23 @@
                 }
             })
         }
+        $('#order-btn').click(function(){
+            price = $('#price').val()
+            $.ajax({
+                type: "POST",
+                url:'./API/api_create_order.php',
+                data: {'price' : price},
+                async: false,
+                success: function(response){
+                    result = JSON.parse(response)
+                    if(result['sql_status'] == "success" && result['cookie_set'] == "success"){
+                        alert("Đặt hàng thành công")
+                        window.location = "./tracking.php"
+                    }
+                }
+            })
+            console.log("click")
+        })
     </script>
 </body>
 </html>

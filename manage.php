@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASH</title>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=<?=time();?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -150,7 +150,7 @@
             }, function(){
             $(this).children("ul").css("display","none")
         }) 
-        console.log($('#manage-table tbody'))
+        // console.log($('#manage-table tbody'))
 
         function fill_data(item_id, item_name, item_date){
             html_string = `
@@ -164,12 +164,12 @@
             $('#manage-table tbody').append(html_string)
         }
 
-        function reformat_date(date_var){
-            year = date_var.substring(0,4)
-            month = date_var.substring(5,7)
-            day = date_var.substring(8,10)
-            return day + "/" + month + "/" + year
-        }
+        // function reformat_date(date_var){
+        //     year = date_var.substring(0,4)
+        //     month = date_var.substring(5,7)
+        //     day = date_var.substring(8,10)
+        //     return day + "/" + month + "/" + year
+        // }
 
         function load_data(){
             $.ajax({
@@ -181,11 +181,11 @@
                     result = JSON.parse(response)
                     // console.log(result)
                     item_list = result['item_data']
-                    console.log(item_list)
+                    // console.log(item_list)
                     $.each(item_list, function(key, item){
-                        date_time = reformat_date(item[5])
+                        // date_time = reformat_date(item[5])
                         // myDate = new Date(date_time).toISOString().slice(0,10)
-                        console.log(date_time)
+                        // console.log(date_time)
                         // console.log(myDate)
                         fill_data(item[0], item[1], item[5])
                     })
@@ -204,7 +204,7 @@
                     data: {'item_id' : item_id},
                     success: function(response){
                         result = JSON.parse(response)
-                        console.log(result)
+                        // console.log(result)
                     }
                 })
                 $('#manage-table tbody').html('')
