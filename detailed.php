@@ -1,6 +1,17 @@
 <?php
     session_start();
     if(isset($_SESSION['user_id'])){
+        $username = "root";
+        $password = "";
+        $hostname = "localhost"; 
+        $dbname = "csdl_web";
+        $mysqli = new mysqli("localhost",$username,$password,$dbname);
+
+        $sql = "SELECT * FROM user_info WHERE user_id = '" . $_SESSION['user_id'] . "'";
+        $user_data = $mysqli->query($sql)->fetch_assoc();
+        // echo "<pre>";
+        // var_dump($user_data);
+        // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HASH</title>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=<?=time();?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -88,14 +99,28 @@
                 </div>
                 <div id='status2'>
                     <h4>Thông tin người nhận</h4>
-                    <p>HUY \/\/ | |3 |_|</p>
-                    <p><span>Địa chỉ: </span><span>135 Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1</span></p>
-                    <p><span>SĐT: </span><span>113</span></p>
+                    <p><?php echo $user_data['name'] ?></p>
+                    <p><span>Địa chỉ: </span><span><?php echo $user_data['address'] ?></span></p>
+                    <p><span>Email: </span><span><?php echo $user_data['email'] ?></span></p>
                 </div>
                 <div id='status3'>
                     <h4>Sản phẩm</h4>
-                    <p>Cạc việt teo 20k</p>
-                    <table>
+                    <div id='tracking-table'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style='width: 15%'>Mã đơn</th>
+                                    <th style='width: 15%'>Ngày mua</th>
+                                    <th style='width: 15%'>Tổng tiền</th>
+                                    <th style='width: 20%'>Trạng thái đơn</th>
+                                    <th style='width: 20%'>Xem chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <table style="display: flex; justify-content: center; font-size: 0.875rem;">
                         <tr>
                             <td style='width: 25vw; padding-right: 10px'>Tiền hàng (đã trừ khuyến mãi):</td>    
                             <td style='text-align: right'>20.000đ</td>                      
