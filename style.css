@@ -516,7 +516,7 @@ html {
     padding: 1rem 0;
 }
 
-#checkout h4 {
+#checkout > h4 {
     margin-top: 10px;
     text-transform: uppercase;
 }
@@ -534,15 +534,42 @@ html {
     width: 25%;
 }
 
-#checkout2 button {
+#checkout2 > button {
     width: 100%;
-    margin-top: 20px;
+}
+
+#checkout2-1 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#checkout2-1 h4 {
+    font-size: 1rem;
+}
+
+#change-address {
+    display: flex
+}
+
+#change-address > h4 {
+    padding-right: 10px;
+    margin-bottom: 0;
+}
+
+#change-address > button {
+    background-color: white; 
+    border: none; 
+    outline: none;
+    padding: 0;
+    font-size: 0.875rem;
 }
 
 #checkout3 {
     background-color: white;
     border-radius: 5px;
     padding: 20px;
+    margin: 15px 0;
 }
 
 .unit {
