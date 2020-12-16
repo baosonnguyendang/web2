@@ -90,8 +90,9 @@
                 <option value="psu">PSU</option>
             </select><br>
 
-            <label for="stock">Số lượng</label>
-            <input type="number" name="stock" id="stock" required><br>
+            <!-- <label for="stock">Số lượng</label>
+            <input type="number" name="stock" id="stock" required><br> -->
+            <input type="hidden" name="stock" id="stock" value=10>
 
             <label for="price">Giá</label>
             <input type="number" name="price" id="price" required><br>
