@@ -100,6 +100,10 @@
                             <span>Giảm giá</span>
                             <span><b id='giam'></b></span>
                         </div>
+                        <div class='money'>
+                            <span>Phí ship</span>
+                            <span><b id='ship'></b></span>
+                        </div>
                     </div>
                     <div class='money' style='padding-top: 10px'>
                         <span style='line-height: 30px;'>Thành tiền</span>
@@ -201,6 +205,7 @@
             // tinh tong tien
             var total_money = parseInt(0);
             var sale_money = parseInt(0);
+            var ship_money = parseInt(20000);
 
             var cart = <?php echo isset($_COOKIE['cart'])? json_encode($_COOKIE['cart']) : 0 ?>;
             // console.log(cart)
@@ -245,8 +250,9 @@
             // console.log(total_money)
             document.getElementById('tong').innerHTML = Number(total_money).toLocaleString('en') + 'đ'
             document.getElementById('giam').innerHTML = Number(sale_money).toLocaleString('en') + 'đ'
-            document.getElementById('thanh').innerHTML = Number(total_money - sale_money).toLocaleString('en') + 'đ'
-            $('#price').val(total_money - sale_money)
+            document.getElementById('ship').innerHTML = Number(ship_money).toLocaleString('en') + 'đ'
+            document.getElementById('thanh').innerHTML = Number(total_money - sale_money + ship_money).toLocaleString('en') + 'đ'
+            $('#price').val(total_money - sale_money + ship_money)
         } 
 
 
