@@ -651,3 +651,88 @@ html {
     border-top: 1px solid #cfcccc;
     border-bottom: 1px solid #cfcccc;
 }
+
+/* detailed, chi tiet don hang */
+
+#detailed {
+    background-color: rgb(241,240,241);
+    padding: 10px 5vw;
+}
+
+#detailed > h4 {
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+#detailed > div {
+    padding: 1rem 0;
+}
+
+#more-detailed {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+}
+
+#status {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #aaa8a8;
+}
+
+#status div {
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    background-color: #698b64;
+    border-radius: 50%;
+    width: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+}
+
+#status i {
+    line-height: 50px;
+    color: white;
+}
+
+#status2 {
+    padding: 15px 0;
+    border-bottom: 1px solid #aaa8a8;
+}
+
+#status2 h4 {
+    font-size: 1.125rem;
+}
+
+#status2 p {
+    font-size: 0.875rem;
+    margin-bottom: 1px;
+}
+
+#exchange {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#exchange button {
+    width: 30%;
+    background-color: #ac6f6f;
+    border-color: #ac6f6f;
+}
+
+#status3 {
+    padding: 15px 0;
+    border-bottom: 1px solid #aaa8a8;
+}
+
+#status3 h4 {
+    font-size: 1.125rem;
+}
+
+#status3 table {
+    display: flex;
+    justify-content: center;
+    font-size: 0.875rem;
+}
