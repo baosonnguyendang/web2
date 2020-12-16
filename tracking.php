@@ -88,7 +88,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td style='width: 15vw'>
                                 <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Nhấn để xem chi tiết đơn hàng" style='border: none; background-color: white; color: black; width: 100%;'>1
                                 </button>
@@ -97,7 +97,7 @@
                             <td style='width: 15vw'>0đ</td>
                             <td style='width: 20vw'><h3><span class="badge badge-primary">Thành cong</span></h3></td>
                             <td style='width: 20vw'><button type="button" class="btn btn-info">Info</button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
