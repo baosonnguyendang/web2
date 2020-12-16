@@ -150,7 +150,7 @@
             }, function(){
             $(this).children("ul").css("display","none")
         }) 
-        console.log($('#manage-table tbody'))
+        // console.log($('#manage-table tbody'))
 
         function fill_data(item_id, item_name, item_date){
             html_string = `
