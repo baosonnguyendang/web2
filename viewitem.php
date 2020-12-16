@@ -110,8 +110,8 @@
                             if(!$item['item_data']['is_delete']){
                         ?>
                             <div id='ssd9'>
-                                <button type="button" class="btn btn-primary"><b>MUA LUÔN</b></button>
-                                <button type="button" class="btn btn-secondary" onclick="add_to_cart(this)"><b>THÊM VÀO GIỎ ĐÃ</b></button>
+                                <button type="button" class="btn btn-primary" onclick="buy_out()"><b>MUA LUÔN</b></button>
+                                <button type="button" class="btn btn-secondary" onclick="add_to_cart()"><b>THÊM VÀO GIỎ ĐÃ</b></button>
                             </div>
                         <?php
                             } else {
@@ -213,8 +213,8 @@
         var user_id = <?php echo $_SESSION['user_id']; ?>;
         // console.log(user_id)
         // console.log(item_detail)
-        function add_to_cart(element){
-            console.log(element)
+        function add_to_cart(){
+            // console.log(element)
             $.ajax({
                 type: "POST",
                 url: "./API/api_set_cookie.php",
@@ -227,6 +227,22 @@
                 }
             })
         }
+
+        function buy_out(){
+            $.ajax({
+                type: "POST",
+                url: "./API/api_set_cookie.php",
+                data: {item : item_detail['item_data'], cookie_case : "0"},
+                success: function(response){
+                    result = JSON.parse(response)
+                    if(result['cookie_set'] == "success"){
+                        // alert("Thêm vào giỏ hàng thành công")
+                        window.location = "./cart.php"
+                    }
+                }
+            })
+        }
+
         //log cookie ra console.log
         window.onload = function(){
             $.ajax({
