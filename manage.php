@@ -200,6 +200,7 @@
                 $.ajax({
                     type: "POST",
                     url: "./API/api_delete_item.php",
+                    async: false,
                     data: {'item_id' : item_id},
                     success: function(response){
                         result = JSON.parse(response)
