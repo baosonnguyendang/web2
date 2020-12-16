@@ -28,7 +28,7 @@
                 break;
             case 1:
                 $sql = "SELECT * FROM item_info 
-                        WHERE item_id ='" . $_GET['item_id'] . "' AND is_delete = 0";
+                        WHERE item_id ='" . $_GET['item_id'] . "'";
                 break;
             case 2:
                 $seller_id = $_SESSION['user_id'];
