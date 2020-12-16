@@ -57,7 +57,7 @@
                             <li><a href="./manage.php">Quản lý</a></li>
                         </ul>
                 </li>
-                <li style='width: 140px;'><a href=''>Theo dõi đơn</a></li>
+                <li style='width: 140px;'><a href='./tracking.php'>Theo dõi đơn</a></li>
                 <li style='padding: 0 20px;'><a href=''>Về chúng tôi</a></li>
             </ul>
             <div id='user'>

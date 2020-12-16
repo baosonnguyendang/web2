@@ -605,6 +605,47 @@ html {
 }
 
 #manage-table tbody tr {
+    font-size: 0.875rem;
+    height: 50px;
+    padding: 10px 0;
+    border-top: 1px solid #cfcccc;
+    border-bottom: 1px solid #cfcccc;
+}
+
+/* tracking */
+
+#tracking {
+    background-color: rgb(241,240,241);
+    padding: 10px 5vw;
+}
+
+#tracking h4 {
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+#tracking > div {
+    padding: 1rem 0;
+}
+
+#tracking-table {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+}
+
+#tracking-table thead {
+    line-height: 50px;
+}
+
+#tracking-table td, th {
+    padding: 0 20px;
+}
+
+#tracking-table tbody tr {
+    font-size: 0.875rem;
     height: 50px;
     padding: 10px 0;
     border-top: 1px solid #cfcccc;
