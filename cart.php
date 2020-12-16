@@ -106,9 +106,10 @@
                         <span style='font-size: 20px; line-height: 30px; color: red'><b id='thanh'></b></span>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary"><b>Đặt hàng thôi</b></button>
+                <button type="button" class="btn btn-primary" id="order-btn"><b>Đặt hàng thôi</b></button>
             </div>
         </div>
+        <input type="hidden" name="price" id="price">
     </div>
     
     <div class='footer' id='footer1'>
@@ -225,23 +226,27 @@
                             }
                         })
                     })
+                    $('#order-btn').prop('disabled', false)
                 } else {
                     html_string = `
                         <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
                     `
                     $('#checkout1').append(html_string)
+                    $('#order-btn').prop('disabled', true)
                 }
             } else {
                 html_string = `
                     <h1>Hiện không có sản phẩm trong giỏ hàng</h1>
                 `
                 $('#checkout1').append(html_string)
+                $('#order-btn').prop('disabled', true)
             }
 
             // console.log(total_money)
             document.getElementById('tong').innerHTML = Number(total_money).toLocaleString('en') + 'đ'
             document.getElementById('giam').innerHTML = Number(sale_money).toLocaleString('en') + 'đ'
             document.getElementById('thanh').innerHTML = Number(total_money - sale_money).toLocaleString('en') + 'đ'
+            $('#price').val(total_money - sale_money)
         } 
 
 
@@ -270,6 +275,23 @@
                 }
             })
         }
+        $('#order-btn').click(function(){
+            price = $('#price').val()
+            $.ajax({
+                type: "POST",
+                url:'./API/api_create_order.php',
+                data: {'price' : price},
+                async: false,
+                success: function(response){
+                    result = JSON.parse(response)
+                    if(result['sql_status'] == "success" && result['cookie_set'] == "success"){
+                        alert("Đặt hàng thành công")
+                        window.location = "./tracking.php"
+                    }
+                }
+            })
+            console.log("click")
+        })
     </script>
 </body>
 </html>
