@@ -35,6 +35,12 @@
                 $sql = "SELECT * FROM item_info 
                         WHERE seller_id = '" . $seller_id . "' AND is_delete = 0";
                 break;
+            //get order data
+            case 3:
+                $buyer_id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM order_info 
+                        WHERE buyer_id = '" . $buyer_id . "'";
+                break;
         }
 
         if ($mysqli->query($sql)) {

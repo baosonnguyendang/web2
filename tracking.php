@@ -80,10 +80,11 @@
                     <thead>
                         <tr>
                             <th style='width: 15vw'>Mã đơn</th>
-                            <th style='width: 30vw; text-align: left'>Tên sản phẩm</th>
+                            <!-- <th style='width: 30vw; text-align: left'>Tên sản phẩm</th> -->
                             <th style='width: 15vw'>Ngày mua</th>
                             <th style='width: 15vw'>Tổng tiền</th>
                             <th style='width: 20vw'>Trạng thái đơn</th>
+                            <th style='width: 20vw'>Xem chi tiết</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,10 +93,10 @@
                                 <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Nhấn để xem chi tiết đơn hàng" style='border: none; background-color: white; color: black; width: 100%;'>1
                                 </button>
                             </td>
-                            <td style='width: 30vw; text-align: left'><a href="">ABC</a></td>
                             <td style='width: 15vw'>29/2/2019</td>
                             <td style='width: 15vw'>0đ</td>
-                            <td style='width: 20vw'><span>Thành cong</span></td>
+                            <td style='width: 20vw'><h3><span class="badge badge-primary">Thành cong</span></h3></td>
+                            <td style='width: 20vw'><button type="button" class="btn btn-info">Info</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -155,25 +156,38 @@
             }, function(){
             $(this).children("ul").css("display","none")
         }) 
-        console.log($('#manage-table tbody'))
+        // console.log($('#manage-table tbody'))
 
-        function fill_data(item_id, item_name, item_date){
-            html_string = `
+        function fill_data(order_id, create_date, price, status){
+            html_string =`
                 <tr>
-                    <td style='width: 15vw'>` + item_id + `</td>
-                    <td style='width: 30vw; text-align: left'><a href="./viewitem.php?item_id=` + item_id + `">` + item_name + `</a></td>
-                    <td style='width: 15vw'>` + item_date + `</td>
-                    <td style='width: 20vw'><button class='btn btn-danger' onclick='remove_item(this)'>Hủy bán</button></td>
+                    <td style='width: 15vw'>
+                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Nhấn để xem chi tiết đơn hàng" style='border: none; background-color: white; color: black; width: 100%;'>` + order_id + `
+                        </button>
+                    </td>
+                    <td style='width: 15vw'>` + create_date + `</td>
+                    <td style='width: 15vw'>` + Number(price).toLocaleString('en') + `đ</td>
+            `
+            switch(status){
+                case "Đang vận chuyển":
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-primary">` + status + `</span></h3></td>`;
+                    break;
+                case "Thành công":
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-success">` + status + `</span></h3></td>`;
+                    break;
+                case "Hủy":
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-danger">` + status + `</span></h3></td>`;
+                    break;
+                default:
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-info">` + status + `</span></h3></td>`;
+            }
+
+            html_string += `
+                    <td style='width: 20vw'><button type="button" class="btn btn-info">Chi tiết đơn hàng</button></td>
                 </tr>
             `
-            $('#manage-table tbody').append(html_string)
-        }
 
-        function reformat_date(date_var){
-            year = date_var.substring(0,4)
-            month = date_var.substring(5,7)
-            day = date_var.substring(8,10)
-            return day + "/" + month + "/" + year
+            $('#tracking-table tbody').append(html_string)
         }
 
         function load_data(){
@@ -181,43 +195,24 @@
                 type: "GET",
                 url: "./API/api_get_item_data.php",
                 async: false,
-                data:{'get_case' : 2},
+                data:{'get_case' : 3},
                 success: function(response){
                     result = JSON.parse(response)
                     // console.log(result)
                     item_list = result['item_data']
-                    console.log(item_list)
+                    // console.log(item_list)
                     $.each(item_list, function(key, item){
-                        date_time = reformat_date(item[5])
+                        // date_time = reformat_date(item[5])
                         // myDate = new Date(date_time).toISOString().slice(0,10)
-                        console.log(date_time)
+                        // console.log(date_time)
                         // console.log(myDate)
-                        fill_data(item[0], item[1], item[5])
+                        fill_data(item[0], item[2], item[1], item[3])
                     })
                 }
             })
         }
 
-        function remove_item(element){
-            item_id = element.parentNode.parentNode.children[0].textContent
-            confirm_text = "Bạn có chắc muốn xóa sản phẩm này?"
-            if(confirm(confirm_text)){
-                $.ajax({
-                    type: "POST",
-                    url: "./API/api_delete_item.php",
-                    data: {'item_id' : item_id},
-                    success: function(response){
-                        result = JSON.parse(response)
-                        console.log(result)
-                    }
-                })
-                $('#manage-table tbody').html('')
-                load_data()
-            }
-        }
-
         window.onload = load_data()
-
     </script>
 </body>
 </html>
