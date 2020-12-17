@@ -31,7 +31,8 @@ CREATE TABLE `comment_info` (
   `cmt_id` int(11) NOT NULL,
   `cmt_content` text DEFAULT NULL,
   `cmt_user_id` int(11) DEFAULT NULL,
-  `is_delete` int(11) DEFAULT NULL
+  `is_delete` int(11) DEFAULT NULL,
+  `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -120,18 +121,19 @@ CREATE TABLE `user_info` (
   `password` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
-  `address` text DEFAULT NULL
+  `address` text DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`user_id`, `username`, `password`, `email`, `name`, `address`) VALUES
-(1, 'annguyen1412', '123456789', 'annguyen1412@gmail.com', 'Nguyen Pham Duy An', 'HCM'),
-(2, 'hoangtruong99', 'hoangtruong', 'hoangtruong99@gmail.com', 'Truong Minh Hoang', 'HCM'),
-(3, 'baosonnguyen', '9874563210', 'baosonnguyen@gmail.com', 'Nguyen Dang Bao Son', 'HCM'),
-(4, 'huyduong99', 'huyduong', 'huyduong99@gmail.com', 'Duong Quang Huy', 'HCM');
+INSERT INTO `user_info` (`user_id`, `username`, `password`, `email`, `name`, `address`, `phone`) VALUES
+(1, 'annguyen1412', '123456789', 'annguyen1412@gmail.com', 'Nguyen Pham Duy An', 'HCM', '0356478215'),
+(2, 'hoangtruong99', 'hoangtruong', 'hoangtruong99@gmail.com', 'Truong Minh Hoang', 'HCM', '0356478215'),
+(3, 'baosonnguyen', '9874563210', 'baosonnguyen@gmail.com', 'Nguyen Dang Bao Son', 'HCM', '0356478215'),
+(4, 'huyduong99', 'huyduong', 'huyduong99@gmail.com', 'Duong Quang Huy', 'HCM', '0356478215');
 
 --
 -- Indexes for dumped tables
@@ -209,7 +211,8 @@ ALTER TABLE `user_info`
 -- Constraints for table `comment_info`
 --
 ALTER TABLE `comment_info`
-  ADD CONSTRAINT `comment_info_ibfk_1` FOREIGN KEY (`cmt_user_id`) REFERENCES `user_info` (`user_id`);
+  ADD CONSTRAINT `comment_info_ibfk_1` FOREIGN KEY (`cmt_user_id`) REFERENCES `user_info` (`user_id`),
+  ADD CONSTRAINT `comment_info_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `item_info` (`item_id`);
 
 --
 -- Constraints for table `item_info`

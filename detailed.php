@@ -163,6 +163,7 @@
                                 <p><?php echo $user_data['name'] ?></p>
                                 <p><span>Địa chỉ: </span><span><?php echo $user_data['address'] ?></span></p>
                                 <p><span>Email: </span><span><?php echo $user_data['email'] ?></span></p>
+                                <p><span>SĐT: </span><span><?php echo $user_data['phone'] ?></span></p>
                             </div>
                             <div id='status3'>
                                 <h4>Sản phẩm</h4>

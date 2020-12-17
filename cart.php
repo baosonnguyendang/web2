@@ -1,6 +1,17 @@
 <?php
     session_start();
     if(isset($_SESSION['user_id'])){
+        $username = "root";
+        $password = "";
+        $hostname = "localhost"; 
+        $dbname = "csdl_web";
+        $mysqli = new mysqli("localhost",$username,$password,$dbname);
+
+        $sql = "SELECT * FROM user_info WHERE user_id = '" . $_SESSION['user_id'] . "'";
+        $user_data = $mysqli->query($sql)->fetch_assoc();
+        // echo "<pre>";
+        // var_dump($user_data);
+        // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -97,9 +108,10 @@
                             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 <u style='color: blue;'>Thay đổi</u>
                             </button> -->
-                            <p>Duy An</p>
-                            <p>Địa chỉ: <span>TP.HCM</span></p>
-                            <p>SĐT: <span>113</span></p>
+                            <p><?php echo $user_data['name'];?></p>
+                            <p>Địa chỉ: <span><?php echo $user_data['address'];?></span></p>
+                            <p>Email: <span><?php echo $user_data['email'];?></span></p>
+                            <p>SĐT: <span><?php echo $user_data['phone'];?></span></p>
                         </div>
                         <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
