@@ -104,7 +104,7 @@
         </div>
     </div>
     
-    <div class='footer' id='footer1'>
+    <div class='footer' id=''>
         <div id='f1'>
             <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
             <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
