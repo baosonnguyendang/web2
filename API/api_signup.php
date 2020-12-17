@@ -21,7 +21,7 @@
     if($_SERVER['REQUEST_METHOD']=="POST"){
         //insert
         if($_POST['username_signup'] != "" && $_POST['password_signup'] != "" && $_POST['email'] != ""){
-            $sql = "INSERT INTO user_info(username, password, email, name, address) VALUES('".$_POST['username_signup']."','".$_POST['password_signup']."','".$_POST['email']."','".$_POST['name_signup']."','".$_POST['address_signup']."');";
+            $sql = "INSERT INTO user_info(username, password, email, name, address, phone) VALUES('".$_POST['username_signup']."','".$_POST['password_signup']."','".$_POST['email']."','".$_POST['name_signup']."','".$_POST['address_signup']."', '" . $_POST['phone'] . "');";
             if ($mysqli->query($sql)) {
                 $result['sql_status'] = "success";
                 $result['sql_log'] = $sql;

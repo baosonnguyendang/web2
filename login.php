@@ -123,7 +123,14 @@
                             <div class="controls">
                                 <input type="text" id="address_signup" name="address_signup" placeholder="" class="input-xlarge" required>
                             </div>
-                        </div>     
+                        </div>        
+                        <div class="control-group">
+                            <!-- Phone -->
+                            <label class="control-label" for="email">SĐT</label>
+                            <div class="controls">
+                                <input type="tel" id="phone" name="phone" placeholder="" class="input-xlarge" minlength="10" maxlength="15" required>
+                            </div>
+                        </div>    
                         <div class="control-group">
                             <!-- E-mail -->
                             <label class="control-label" for="email">E-mail</label>

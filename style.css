@@ -298,13 +298,18 @@ html {
 }
 
 /* footer */
-
+body{ 
+    height:100vh; 
+    margin:0; 
+    background-color: rgb(241,240,241) !important;
+    display:flex; 
+    flex-direction:column; 
+}
 .footer {
-    bottom: 0;
-    display: inline-block;
     width: 100%;
     background-color: rgb(196, 192, 192);
     z-index: 2;
+    margin-top:auto;
 }
 
 #footer0 {
