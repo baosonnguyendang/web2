@@ -32,7 +32,8 @@ CREATE TABLE `comment_info` (
   `cmt_content` text DEFAULT NULL,
   `cmt_user_id` int(11) DEFAULT NULL,
   `is_delete` int(11) DEFAULT NULL,
-  `item_id` int(11) NOT NULL
+  `item_id` int(11) NOT NULL,
+  `cmt_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
