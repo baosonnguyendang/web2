@@ -94,11 +94,14 @@
                     <div style='padding-bottom: 20px; border-bottom: 1px solid #f1f1f1'>
                         <div id='change-address'>
                             <h4>Thông tin người nhận</h4>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 <u style='color: blue;'>Thay đổi</u>
-                            </button>
+                            </button> -->
+                            <p>Duy An</p>
+                            <p>Địa chỉ: <span>TP.HCM</span></p>
+                            <p>SĐT: <span>113</span></p>
                         </div>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -136,12 +139,11 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                                         <button type="button" class="btn btn-primary">Lưu</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div id='checkout3'>
@@ -155,7 +157,7 @@
                             <span><b id='giam'></b></span>
                         </div>
                         <div class='money'>
-                            <span>Phí ship</span>
+                            <span>Phí vận chuyển</span>
                             <span><b id='ship'></b></span>
                         </div>
                     </div>
@@ -170,7 +172,7 @@
         <input type="hidden" name="price" id="price">
     </div>
     
-    <div class='footer' id='footer1'>
+    <div class='footer'>
         <div id='f1'>
             <p style='font-size: 22px; margin-bottom: 10px;'><b>Công ty TNHH HASH</b></p>
             <p style='font-size: 14px; margin-bottom: 5px;'>Address: Khu đô thị ĐHQG TPHCM, Phường Đông Hòa, TP Dĩ An, Bình Dương</p>
