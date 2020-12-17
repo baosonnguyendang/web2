@@ -117,10 +117,46 @@
                                     <i class="fa fa-times fa-2x" aria-hidden="true"></i>
                                 </div>
                                 <span style='margin-left: 10px;'><b>Đơn đã bị hủy</b></span> -->
-                                <div>
+                                <!-- <div>
                                     <i class="fa fa-usd fa-2x" aria-hidden="true"></i>
                                 </div>
-                                <span style='margin-left: 10px;'><b>Đơn đã được hoàn tiền</b></span>
+                                <span style='margin-left: 10px;'><b>Đơn đã được hoàn tiền</b></span> -->
+                                <?php 
+                                    switch($order_data[3]){
+                                        case "Thành công":
+                                            echo '
+                                            <div>
+                                                <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <span style="margin-left: 10px;"><b>Đơn đã được giao</b></span>
+                                            ';
+                                            break;
+                                        case "Hoàn tiền":
+                                            echo '
+                                            <div>
+                                                <i class="fa fa-usd fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <span style="margin-left: 10px;"><b>Đơn đã được hoàn tiền</b></span>
+                                            ';
+                                            break;
+                                        case "Hủy":
+                                            echo '
+                                            <div>
+                                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <span style="margin-left: 10px;"><b>Đơn đã bị hủy</b></span>
+                                            ';
+                                            break;
+                                        default:
+                                            echo '
+                                            <div>
+                                                <i class="fa fa-truck fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <span style="margin-left: 10px;"><b>Đơn đang được vận chuyển</b></span>
+                                            ';
+                                            break;
+                                    }
+                                ?>
                             </div>
                             <div id='status2'>
                                 <h4>Thông tin người nhận</h4>
@@ -186,7 +222,7 @@
                                     </tr>
                                     <tr style='border-top: 1px solid #7e7a7a;'>
                                         <td style='width: 25vw; padding-right: 10px'>Tổng tiền:</td>
-                                        <td style='text-align: right; color: red;'><?php echo number_format($order_data[1] + 20000);?>đ</td>
+                                        <td style='text-align: right; color: red;'><?php echo number_format($order_data[1]);?>đ</td>
                                     </tr>
                                 </table>
                             </div>
