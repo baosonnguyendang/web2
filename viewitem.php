@@ -7,19 +7,21 @@
         $dbname = "csdl_web";
         $mysqli = new mysqli("localhost",$username,$password,$dbname);
 
-        $result['sql_status'] = "fail";
-        // Check connection
-        if ($mysqli->connect_error) {
-            echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-            exit();
-        } else {
-            $sql = "SELECT * FROM item_info LEFT JOIN user_info ON item_info.seller_id = user_info.user_id WHERE item_id = '".$_GET['item_id']."'";
-            if ($mysqli->query($sql)) {
-                // $result['sql_status'] = "success";
-                $item['sql_log'] = $sql;
-                $item['item_data'] = $mysqli->query($sql)->fetch_assoc();
-            }
-        }
+        
+        $sql = "SELECT * FROM item_info LEFT JOIN user_info ON item_info.seller_id = user_info.user_id WHERE item_id = '".$_GET['item_id']."'";
+        $item['item_data'] = $mysqli->query($sql)->fetch_assoc();
+        // echo "<pre>";
+        // var_dump($item['item_data']);
+        // echo "</pre>";
+
+        $sql = "SELECT * FROM comment_info 
+                LEFT JOIN user_info ON user_info.user_id = comment_info.cmt_user_id 
+                WHERE comment_info.item_id = '" . $_GET['item_id']. "' AND is_delete = 0
+                ORDER BY cmt_date DESC";
+        $cmt_list = $mysqli->query($sql)->fetch_all();
+        // echo "<pre>";
+        // var_dump($cmt_list);
+        // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -142,7 +144,30 @@
             <div id='ssd10'>
                 <div>
                     <h4>Nhận xét sản phẩm</h4>
-                    <div class='feedback'>
+                    <?php
+                        foreach($cmt_list as $cmt){
+                            $sql = "SELECT * FROM order_item_info WHERE item_id = '" . $cmt[4] . "' AND buyer_id = '" . $cmt[2] . "'";
+                            if(empty($mysqli->query($sql)->fetch_all())){
+                                $html_string = "
+                                <div class='feedback'>
+                                    <p style='margin-bottom: 2px; font-size: 1.125rem'>" . $cmt[10] . "</p>
+                                    <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào " . $cmt[5] . "</p>
+                                    <p style='margin-bottom: 2px'>" . $cmt[1] . "</p>
+                                </div>
+                                ";
+                            } else {
+                                $html_string = "
+                                <div class='feedback'>
+                                    <p style='margin-bottom: 2px; font-size: 1.125rem'>" . $cmt[10] . "<span style='font-size: 1rem; color: #125aaa'> (Đã mua sản phẩm)</span></p>
+                                    <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào " . $cmt[5] . "</p>
+                                    <p style='margin-bottom: 2px'>" . $cmt[1] . "</p>
+                                </div>
+                                ";
+                            }
+                            echo $html_string;
+                        }
+                    ?>
+                    <!-- <div class='feedback'>
                         <p style='margin-bottom: 2px; font-size: 1.125rem'>Duy An</p>
                         <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào </p>
                         <p style='margin-bottom: 2px'>Xịn</p>
@@ -151,11 +176,12 @@
                         <p style='margin-bottom: 2px; font-size: 1.125rem'>Duy An<span style='font-size: 1rem; color: #125aaa'> (Đã mua sản phẩm)</span></p>
                         <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào </p>
                         <p style='margin-bottom: 2px'>Xịn</p>
-                    </div>
+                    </div> -->
                     <div class='feedback'>
-                        <form>
+                        <form method='POST' action='./API/api_create_cmt.php'>
                             <label for="nx"><b>Nhận xét của bạn về sản phẩm:</b></label><br>
-                            <textarea maxlength="10000" style='width: 100%; height: 100px;'></textarea><br>
+                            <textarea maxlength="10000" style='width: 100%; height: 100px;' name="cmt_content"></textarea><br>
+                            <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>">
                             <input type="submit" value="Đăng">
                         </form>
                     </div>
