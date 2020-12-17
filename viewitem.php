@@ -146,7 +146,9 @@
                     <h4>Nhận xét sản phẩm</h4>
                     <?php
                         foreach($cmt_list as $cmt){
-                            $sql = "SELECT * FROM order_item_info WHERE item_id = '" . $cmt[4] . "' AND buyer_id = '" . $cmt[2] . "'";
+                            $sql = "SELECT * FROM order_item_info
+                                    LEFT JOIN order_info ON order_item_info.order_id = order_info.order_id
+                                    WHERE order_info.status != 'Đang vận chuyển' AND order_info.status != 'Hủy' AND order_item_info.item_id = '" . $cmt[4] . "' AND order_item_info.buyer_id = '" . $cmt[2] . "'";
                             if(empty($mysqli->query($sql)->fetch_all())){
                                 $html_string = "
                                 <div class='feedback'>
