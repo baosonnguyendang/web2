@@ -174,11 +174,11 @@
                                 </tr>
                                 <tr>
                                     <td style='width: 25vw; padding-right: 10px'>Phí vận chuyển:</td>
-                                    <td style='text-align: right'><?php echo number_format($order_data[1]);?>đ</td>
+                                    <td style='text-align: right'><?php echo number_format($order_data[1] - 20000);?>đ</td>
                                 </tr>
                                 <tr style='border-top: 1px solid #7e7a7a;'>
                                     <td style='width: 25vw; padding-right: 10px'>Tổng tiền:</td>
-                                    <td style='text-align: right; color: red;'><?php echo number_format($order_data[1] + 20000);?>đ</td>
+                                    <td style='text-align: right; color: red;'><?php echo number_format($order_data[1]);?>đ</td>
                                 </tr>
                             </table>
                         </div>
