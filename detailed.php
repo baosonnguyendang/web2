@@ -147,12 +147,20 @@
                                             <span style="margin-left: 10px;"><b>Đơn đã bị hủy</b></span>
                                             ';
                                             break;
-                                        default:
+                                        case "Đang vận chuyển":
                                             echo '
                                             <div>
                                                 <i class="fa fa-truck fa-2x" aria-hidden="true"></i>
                                             </div>
                                             <span style="margin-left: 10px;"><b>Đơn đang được vận chuyển</b></span>
+                                            ';
+                                            break;
+                                        default:
+                                            echo '
+                                            <div>
+                                                <i class="fa fa-truck fa-2x" aria-hidden="true"></i>
+                                            </div>
+                                            <span style="margin-left: 10px;"><b>Đơn đang được lấy hàng</b></span>
                                             ';
                                             break;
                                     }
@@ -241,17 +249,20 @@
 
                                                 $interval = $date_deliver->diff($date_refund);
                                                 if($interval->d <= 7 && $interval->m == 0 && $interval->y == 0){
-                                                    echo '<button type="button" class="btn btn-warning" onclick="confirm_recieved(4)">Hoàn tiền</button>';
+                                                    echo '<button type="button" class="btn btn-warning" onclick="confirm_recieved(3)">Hoàn tiền</button>';
                                                 } else {
-                                                    echo '<button type="button" class="btn btn-warning" title="Đã vượt quá 7 ngày kể từ lúc nhận hàng" onclick="confirm_recieved(4)" disabled>Hoàn tiền</button>';
+                                                    echo '<button type="button" class="btn btn-warning" title="Đã vượt quá 7 ngày kể từ lúc nhận hàng" onclick="confirm_recieved(3)" disabled>Hoàn tiền</button>';
                                                 }
                                             }
                                             break;
                                         case "Hoàn tiền":
-                                            echo '<button type="button" class="btn btn-warning" onclick="confirm_recieved(4)" title="Đã hoàn tiền" disabled>Hoàn tiền</button>';
+                                            echo '<button type="button" class="btn btn-warning" onclick="confirm_recieved(3)" title="Đã hoàn tiền" disabled>Hoàn tiền</button>';
                                             break;
                                         case "Hủy":
                                             echo '<button type="button" class="btn btn-danger" onclick="confirm_recieved(2)" title="Đã hủy đơn hàng" disabled>Đã hủy đơn hàng</button>';
+                                            break;
+                                        case "Đang lấy hàng":
+                                            echo '<button type="button" class="btn btn-danger" onclick="confirm_recieved(2)">Hủy đơn hàng</button>';
                                             break;
                                         default:
                                             echo '<button type="button" class="btn btn-success" onclick="confirm_recieved(1)">Xác nhận đã nhận hàng</button>';

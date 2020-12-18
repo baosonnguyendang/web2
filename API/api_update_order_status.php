@@ -29,12 +29,16 @@
         case 2:
             $status = "Hủy";
             break;
-        default:
+        case 3:
             $status = "Hoàn tiền";
             break;
     }
     $datetime = date('Y-m-d H:i:s');
-    $sql = "UPDATE order_info SET status='" . $status . "', deliver_date = '" . $datetime . "' WHERE order_id = " . $_POST['order_id'];
+    if ($_POST['status_case'] == "Đang vận chuyển"){
+        $sql = "UPDATE order_info SET status='" . $status . "' WHERE order_id = " . $_POST['order_id'];
+    } else {
+        $sql = "UPDATE order_info SET status='" . $status . "', deliver_date = '" . $datetime . "' WHERE order_id = " . $_POST['order_id'];
+    }
 
     if($mysqli->query($sql)){
         $result['sql_status'] = "success";

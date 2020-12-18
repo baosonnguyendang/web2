@@ -178,8 +178,11 @@
                 case "Hủy":
                     html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-danger">` + status + `</span></h3></td>`;
                     break;
-                default:
+                case "Hoàn tiền":
                     html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-warning">` + status + `</span></h3></td>`;
+                    break;
+                default:
+                    html_string += `<td style='width: 20vw'><h3 style="margin: 0"><span class="badge badge-info">` + status + `</span></h3></td>`;
             }
 
             html_string += `
