@@ -1,6 +1,21 @@
 <?php
     session_start();
     if(isset($_SESSION['user_id'])){
+        $username = "root";
+        $password = "";
+        $hostname = "localhost"; 
+        $dbname = "csdl_web";
+        $mysqli = new mysqli("localhost",$username,$password,$dbname);
+
+        $sql = "SELECT DISTINCT order_item_info.order_id FROM order_item_info 
+                LEFT JOIN order_info ON order_item_info.order_id = order_info.order_id
+                LEFT JOIN item_info ON order_item_info.item_id = item_info.item_id
+                WHERE item_info.seller_id =". $_SESSION['user_id'];
+        $order_id_list = $mysqli->query($sql)->fetch_all();
+
+        // echo "<pre>";
+        // var_dump($order_id_list);
+        // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +98,7 @@
             <h4>Lịch sử</h4>
             <div id='history21'>
                 <div id='manage-table'>
-                    <table>
+                    <table style="width: 100%;">
                         <thead>
                             <tr>
                                 <th style='width: 12%'>Mã đơn</th>
@@ -95,11 +110,62 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            foreach($order_id_list as $order_id){
+                                $sql = "SELECT item_info.item_id, item_info.item_picture, item_info.item_name, user_info.name, order_info.create_date, order_info.status FROM order_item_info 
+                                        LEFT JOIN order_info ON order_item_info.order_id = order_info.order_id
+                                        LEFT JOIN item_info ON order_item_info.item_id = item_info.item_id
+                                        LEFT JOIN user_info ON order_info.buyer_id = user_info.user_id
+                                        WHERE order_info.order_id = ". $order_id[0];
+                                $data = $mysqli->query($sql)->fetch_all();
+                                $html_string = "
+                                    <tr>
+                                        <td style='width: 12%' rowspan = '" . count($data) . "'><h6>$order_id[0]</h6></td>
+                                ";
+                                $flag =0;
+                                foreach($data as $item){
+                                    if(!$flag){
+                                        $html_string .= "
+                                                <td style='width: 12%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
+                                                <td style='width: 35%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                                <td style='width: 15%' rowspan = '" . count($data) . "'><h6>$item[3]</h6></td>
+                                                <td style='width: 13%' rowspan = '" . count($data) . "'><h6>$item[4]</h6></td>
+                                        ";
+                                        switch($item[5]){
+                                            case "Đang vận chuyển":
+                                                $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-primary'>$item[5]</span></h4></td>";
+                                                break;
+                                            case "Thành công":
+                                                $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-success'>$item[5]</span></h4></td>";
+                                                break;
+                                            case "Hủy":
+                                                $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-danger'>$item[5]</span></h4></td>";
+                                                break;
+                                            case "Hoàn tiền":
+                                                $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-warning'>$item[5]</span></h4></td>";
+                                                break;
+                                        }
+                                        $html_string .= "</tr>";
+                                        $flag++;
+                                    } else {
+                                        $html_string .= "
+                                            <tr>
+                                                <td style='width: 12%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
+                                                <td style='width: 35%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                            </tr>
+                                        ";
+                                    }
+                                }
+                                echo $html_string;
+                            }
+                        ?>
                             <!-- <tr>
-                                <td style='width: 15vw'>1</td>
-                                <td style='width: 30vw; text-align: left'><a href=""></a></td>
-                                <td style='width: 15vw'>29/2/2019</td>
-                                <td style='width: 20vw'><button style='border: none; background: none;'>Hủy bán</button></td>
+                                <td style='width: 12%'>Mã đơn</td>
+                                <td style='width: 12% '><img src="" alt=""></td>
+                                <td style='width: 35%; text-align: left'><a href=""></a></td>
+                                <td style='width: 15%'>Người mua</td>
+                                <td style='width: 13%'>Ngày mua</td>
+                                <td style='width: 13%'>Trạng tdái</td>
                             </tr> -->
                         </tbody>
                     </table>
@@ -162,69 +228,7 @@
         }) 
         // console.log($('#manage-table tbody'))
 
-        function fill_data(item_id, item_name, item_date){
-            html_string = `
-                <tr>
-                    <td style='width: 12%'>` + item_id + `</td>
-                    <td style='width: 12%'>` + item_id + `</td>
-                    <td style='width: 35%; text-align: left'><a href="./viewitem.php?item_id=` + item_id + `">` + item_name + `</a></td>
-                    <td style='width: 15%'>` + item_date + `</td>
-                    <td style='width: 13%'>` + item_date + `</td>
-                    <td style='width: 13%'><button class='btn btn-danger' onclick='remove_item(this)'>Hủy bán</button></td>
-                </tr>
-            `
-            $('#manage-table tbody').append(html_string)
-        }
-
-        // function reformat_date(date_var){
-        //     year = date_var.substring(0,4)
-        //     month = date_var.substring(5,7)
-        //     day = date_var.substring(8,10)
-        //     return day + "/" + month + "/" + year
-        // }
-
-        function load_data(){
-            $.ajax({
-                type: "GET",
-                url: "./API/api_get_item_data.php",
-                async: false,
-                data:{'get_case' : 2},
-                success: function(response){
-                    result = JSON.parse(response)
-                    // console.log(result)
-                    item_list = result['item_data']
-                    // console.log(item_list)
-                    $.each(item_list, function(key, item){
-                        // date_time = reformat_date(item[5])
-                        // myDate = new Date(date_time).toISOString().slice(0,10)
-                        // console.log(date_time)
-                        // console.log(myDate)
-                        fill_data(item[0], item[1], item[5])
-                    })
-                }
-            })
-        }
-
-        function remove_item(element){
-            item_id = element.parentNode.parentNode.children[0].textContent
-            confirm_text = "Bạn có chắc muốn xóa sản phẩm này?"
-            if(confirm(confirm_text)){
-                $.ajax({
-                    type: "POST",
-                    url: "./API/api_delete_item.php",
-                    async: false,
-                    data: {'item_id' : item_id},
-                    success: function(response){
-                        result = JSON.parse(response)
-                        // console.log(result)
-                    }
-                })
-                $('#manage-table tbody').html('')
-                load_data()
-            }
-        }
-
-        window.onload = load_data()
+        
 
     </script>
 </body>

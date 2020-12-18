@@ -215,11 +215,11 @@
                                                 foreach($order_item_list as $item){
                                                     $html_string = "
                                                         <tr style=''>
-                                                            <td style='width: 15vw'>
-                                                                " . $stt . "
+                                                            <td style='width: 15vw; font-size: 20px;'>
+                                                                $stt
                                                             </td>
                                                             <td style='width: 15vw; padding: 10px 0'><img src='" . $item[7] . "' style='height: 5vw'></td>
-                                                            <td style='width: 15vw; text-align: left'><a href='./viewitem.php?item_id=" . $item[5] . "'>" . $item[6] . "</a></td>
+                                                            <td style='width: 15vw; text-align: left;'><a href='./viewitem.php?item_id=" . $item[5] . "'>" . $item[6] . "</a></td>
                                                             <td style='width: 20vw; font-size: 20px;'>" . $item[3] . "</td>
                                                             <td style='width: 20vw; font-size: 20px;'>" . number_format($item[4]) . "đ</td>
                                                         </tr>
@@ -232,7 +232,7 @@
                                     </table>
                                 </div>
 
-                                <table style="display: flex; justify-content: center; font-size: 0.875rem;">
+                                <table style="display: flex; justify-content: center; font-size: 0.875rem; font-size: 20px;">
                                     <tr>
                                         <td style='width: 25vw; padding-right: 10px'>Tiền hàng (đã trừ khuyến mãi):</td>    
                                         <td style='text-align: right'>20,000đ</td>                      
