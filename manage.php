@@ -72,28 +72,36 @@
         </div>
     </div>
 
-    <div id='manage'>
-        <h4>Quản lí sản phẩm đang bán</h4>
-        <div>
-            <div id='manage-table'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style='width: 15vw'>Mã sản phẩm</th>
-                            <th style='width: 30vw; text-align: left'>Tên sản phẩm</th>
-                            <th style='width: 15vw'>Ngày đăng</th>
-                            <th style='width: 20vw'></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
-                            <td style='width: 15vw'>1</td>
-                            <td style='width: 30vw; text-align: left'><a href=""></a></td>
-                            <td style='width: 15vw'>29/2/2019</td>
-                            <td style='width: 20vw'><button style='border: none; background: none;'>Hủy bán</button></td>
-                        </tr> -->
-                    </tbody>
-                </table>
+    <div id='history'>
+        <div id='history1'>
+            <ul><span style='text-transform: uppercase; font-size: 1.5rem; padding-left: 5px;'><b>Quản lý</b></span>
+                <li style='margin-top: 5px; background-color: #aaa8;'><a href='./manage.php'><i class="fa fa-tasks" aria-hidden="true"></i><span>Quản lí sản phẩm đang bán</span></a></li>
+                <li><a href='./history.php'><i class="fa fa-book" aria-hidden="true"></i><span>Lịch sử bán</span></a></li>
+            </ul>
+        </div>
+        <div id='history2'>
+            <h4>Quản lí sản phẩm đang bán</h4>
+            <div>
+                <div id='manage-table'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style='width: 15vw'>Mã sản phẩm</th>
+                                <th style='width: 30vw; text-align: left'>Tên sản phẩm</th>
+                                <th style='width: 15vw'>Ngày đăng</th>
+                                <th style='width: 20vw'></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td style='width: 15vw'>1</td>
+                                <td style='width: 30vw; text-align: left'><a href=""></a></td>
+                                <td style='width: 15vw'>29/2/2019</td>
+                                <td style='width: 20vw'><button style='border: none; background: none;'>Hủy bán</button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
