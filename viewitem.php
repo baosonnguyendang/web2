@@ -145,6 +145,7 @@
                 <div>
                     <h4>Nhận xét sản phẩm</h4>
                     <?php
+                    if(!empty($cmt_list)){
                         foreach($cmt_list as $cmt){
                             $sql = "SELECT * FROM order_item_info
                                     LEFT JOIN order_info ON order_item_info.order_id = order_info.order_id
@@ -168,6 +169,9 @@
                             }
                             echo $html_string;
                         }
+                    } else {
+                        echo "<h1>Hiện không có bình luận cho sản phẩm này</h1>";
+                    }
                     ?>
                     <!-- <div class='feedback'>
                         <p style='margin-bottom: 2px; font-size: 1.125rem'>Duy An</p>
