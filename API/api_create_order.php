@@ -24,7 +24,7 @@
     $datetime = date('Y-m-d H:i:s');
     
     $sql = "INSERT INTO order_info( price, create_date, status, buyer_id) 
-            VALUES (" . $_POST['price'] . ",'" . $datetime . "','Đang lấy hàng'," . $buyer_id . ")";
+            VALUES (" . $_POST['price'] . ",'" . $datetime . "','Đang vận chuyển'," . $buyer_id . ")";
     if($mysqli->query($sql)){
         $sql = "SELECT * FROM order_info ORDER BY order_id DESC LIMIT 1";
         $order_id = $mysqli->query($sql)->fetch_row()[0];

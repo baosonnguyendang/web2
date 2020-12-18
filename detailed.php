@@ -190,13 +190,25 @@
                                         </thead>
                                         <tbody>
                                             <!-- <tr style='font-size: 20px;'>
-                                                <td style='width: 15vw'>
+                                                <td style='width: 15vw' rowspan="3">
                                                     1
                                                 </td>
-                                                <td style='width: 15vw; padding: 10px 0'><img src='./images/sp1.jpg' style='height: 5vw'></td>
-                                                <td style='width: 15vw; text-align: left'><a href=''>ssss</a></td>
-                                                <td style='width: 20vw'>1</td>
-                                                <td style='width: 20vw'>100000đ</td>
+                                                    <td style='width: 15vw; padding: 10px 0'> <img src='./images/sp1.jpg' style='height: 5vw'></td>
+                                                    <td style='width: 15vw; text-align: left'><a href=''>ssss</a></td>
+                                                    <td style='width: 20vw'>1</td>
+                                                    <td style='width: 20vw'>100000đ</td>
+                                                <tr>
+                                                    <td style='width: 15vw; padding: 10px 0'> <img src='./images/sp1.jpg' style='height: 5vw'></td>
+                                                    <td style='width: 15vw; text-align: left'><a href=''>ssss</a></td>
+                                                    <td style='width: 20vw'>1</td>
+                                                    <td style='width: 20vw'>100000đ</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style='width: 15vw; padding: 10px 0'> <img src='./images/sp1.jpg' style='height: 5vw'></td>
+                                                    <td style='width: 15vw; text-align: left'><a href=''>ssss</a></td>
+                                                    <td style='width: 20vw'>1</td>
+                                                    <td style='width: 20vw'>100000đ</td>
+                                                </tr>
                                             </tr> -->
                                             <?php
                                                 $stt = 1;
