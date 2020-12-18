@@ -101,18 +101,19 @@
                     <table style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style='width: 12%'>Mã đơn</th>
-                                <th style='width: 12%'>Hình SP</th>
-                                <th style='width: 35%; text-align: left'>Tên sản phẩm</th>
+                                <th style='width: 6%'>Mã đơn</th>
+                                <th style='width: 10%'>Hình SP</th>
+                                <th style='width: 25%; text-align: left'>Tên sản phẩm</th>
                                 <th style='width: 15%'>Người mua</th>
                                 <th style='width: 13%'>Ngày mua</th>
                                 <th style='width: 13%'>Trạng thái</th>
+                                <th style='width: 18%'>Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
                             foreach($order_id_list as $order_id){
-                                $sql = "SELECT item_info.item_id, item_info.item_picture, item_info.item_name, user_info.name, order_info.create_date, order_info.status FROM order_item_info 
+                                $sql = "SELECT item_info.item_id, item_info.item_picture, item_info.item_name, user_info.name, order_info.create_date, order_info.status, order_info.price FROM order_item_info 
                                         LEFT JOIN order_info ON order_item_info.order_id = order_info.order_id
                                         LEFT JOIN item_info ON order_item_info.item_id = item_info.item_id
                                         LEFT JOIN user_info ON order_info.buyer_id = user_info.user_id
@@ -120,16 +121,16 @@
                                 $data = $mysqli->query($sql)->fetch_all();
                                 $html_string = "
                                     <tr>
-                                        <td style='width: 12%' rowspan = '" . count($data) . "'><h6>$order_id[0]</h6></td>
+                                        <td style='width: 6%' rowspan = '" . count($data) . "'><h6>$order_id[0]</h6></td>
                                 ";
                                 $flag =0;
                                 foreach($data as $item){
                                     if(!$flag){
                                         $html_string .= "
-                                                <td style='width: 12%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
-                                                <td style='width: 35%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
-                                                <td style='width: 15%' rowspan = '" . count($data) . "'><h6>$item[3]</h6></td>
-                                                <td style='width: 13%' rowspan = '" . count($data) . "'><h6>$item[4]</h6></td>
+                                                <td style='width: 10%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
+                                                <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                                <td style='width: 15%;' rowspan = '" . count($data) . "'><h6>$item[3]</h6></td>
+                                                <td style='width: 13%;' rowspan = '" . count($data) . "'><h6>$item[4]</h6></td>
                                         ";
                                         switch($item[5]){
                                             case "Đang vận chuyển":
@@ -145,13 +146,14 @@
                                                 $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-warning'>$item[5]</span></h4></td>";
                                                 break;
                                         }
+                                        $html_string .= "<td style='width: 18%' rowspan = '" . count($data) . "'><h6>".number_format($item[6])."đ</h6></td>";
                                         $html_string .= "</tr>";
                                         $flag++;
                                     } else {
                                         $html_string .= "
                                             <tr>
-                                                <td style='width: 12%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
-                                                <td style='width: 35%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                                <td style='width: 10%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
+                                                <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
                                             </tr>
                                         ";
                                     }
