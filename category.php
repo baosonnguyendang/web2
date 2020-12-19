@@ -265,9 +265,14 @@
                     data: {'type':value, 'get_case':0},
                     success: function(response){
                         result = JSON.parse(response)
-                        // console.log(result['item_data'])
+                        console.log(result['item_data'])
                         // console.log(value)
-                        fill_data(value, result['item_data'])
+                        if(result['item_data'].length != 0){
+                            fill_data(value, result['item_data'])
+                        } else {
+                            html_string = `<h4>Hiện không có sản phẩm</h4>`
+                            $('#mid').append(html_string)
+                        }
                     }
                 })
             })
