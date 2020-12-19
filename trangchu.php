@@ -46,8 +46,13 @@
                     <li style='width: 140px;' class='drop'>
                         <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
                         <ul class='category'>
-                            <li><a href="#">SSD</a></li>
-                            <li><a href="#">RAM</a></li>
+                            <li><a href="./category.php?item_type=ram">Ram</a></li>
+                            <li><a href="./category.php?item_type=ssd">SSD</a></li>
+                            <li><a href="./category.php?item_type=hdd">HDD</a></li>
+                            <li><a href="./category.php?item_type=gpu">GPU</a></li>
+                            <li><a href="./category.php?item_type=cpu">CPU</a></li>
+                            <li><a href="./category.php?item_type=mobo">Motherboard</a></li>
+                            <li><a href="./category.php?item_type=psu">PSU</a></li>
                         </ul>
                     </li>
                     <li style='width: 120px;' class='drop'>
@@ -274,8 +279,8 @@
         }
 
         function view_item(element){
-            console.log(element);
-            console.log(element.children[2].value);
+            // console.log(element);
+            // console.log(element.children[2].value);
             item_id = element.children[2].value
             // $.ajax({
             //     type: "GET",
