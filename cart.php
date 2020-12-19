@@ -57,7 +57,7 @@
                 <li style='width: 140px;' class='drop'>
                     <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
                     <ul class='category'>
-                        <li><a href="./category.php?item_type=ram">Ram</a></li>
+                        <li><a href="./category.php?item_type=ram">RAM</a></li>
                         <li><a href="./category.php?item_type=ssd">SSD</a></li>
                         <li><a href="./category.php?item_type=hdd">HDD</a></li>
                         <li><a href="./category.php?item_type=gpu">GPU</a></li>
