@@ -183,14 +183,20 @@
                         <p style='margin-bottom: 2px; color: #999999; font-size: 0.9rem'>Đã nhận xét vào </p>
                         <p style='margin-bottom: 2px'>Xịn</p>
                     </div> -->
-                    <div class='feedback'>
-                        <form method='POST' action='./API/api_create_cmt.php'>
-                            <label for="nx"><b>Nhận xét của bạn về sản phẩm:</b></label><br>
-                            <textarea maxlength="10000" style='width: 100%; height: 100px;' name="cmt_content"></textarea><br>
-                            <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>">
-                            <input type="submit" value="Đăng">
-                        </form>
-                    </div>
+                    <?php
+                        if(isset($_SESSION['user_id'])){
+                            echo "
+                            <div class='feedback'>
+                                <form method='POST' action='./API/api_create_cmt.php'>
+                                    <label for='nx'><b>Nhận xét của bạn về sản phẩm:</b></label><br>
+                                    <textarea maxlength='10000' style='width: 100%; height: 100px;' name='cmt_content'></textarea><br>
+                                    <input type='hidden' name='item_id' value='".$_GET['item_id']."'>
+                                    <input type='submit' value='Đăng'>
+                                </form>
+                            </div>
+                            ";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -249,37 +255,45 @@
             })  
 
             var item_detail = <?php echo json_encode($item);?>;
-            var user_id = <?php echo $_SESSION['user_id']; ?>;
+            var user_id = <?php echo isset($_SESSION['user_id'])? $_SESSION['user_id'] : 'false' ?>;
             // console.log(user_id)
             // console.log(item_detail)
             function add_to_cart(){
                 // console.log(element)
-                $.ajax({
-                    type: "POST",
-                    url: "./API/api_set_cookie.php",
-                    data: {item : item_detail['item_data'], cookie_case : "0"},
-                    success: function(response){
-                        result = JSON.parse(response)
-                        if(result['cookie_set'] == "success"){
-                            alert("Thêm vào giỏ hàng thành công")
+                if(user_id){
+                    $.ajax({
+                        type: "POST",
+                        url: "./API/api_set_cookie.php",
+                        data: {item : item_detail['item_data'], cookie_case : "0"},
+                        success: function(response){
+                            result = JSON.parse(response)
+                            if(result['cookie_set'] == "success"){
+                                alert("Thêm vào giỏ hàng thành công")
+                            }
                         }
-                    }
-                })
+                    })
+                } else {
+                    window.location = "./login.php"
+                }
             }
 
             function buy_out(){
-                $.ajax({
-                    type: "POST",
-                    url: "./API/api_set_cookie.php",
-                    data: {item : item_detail['item_data'], cookie_case : "0"},
-                    success: function(response){
-                        result = JSON.parse(response)
-                        if(result['cookie_set'] == "success"){
-                            // alert("Thêm vào giỏ hàng thành công")
-                            window.location = "./cart.php"
+                if(user_id){
+                    $.ajax({
+                        type: "POST",
+                        url: "./API/api_set_cookie.php",
+                        data: {item : item_detail['item_data'], cookie_case : "0"},
+                        success: function(response){
+                            result = JSON.parse(response)
+                            if(result['cookie_set'] == "success"){
+                                // alert("Thêm vào giỏ hàng thành công")
+                                window.location = "./cart.php"
+                            }
                         }
-                    }
-                })
+                    })
+                } else {
+                    window.location = "./login.php"
+                }
             }
 
             //log cookie ra console.log
