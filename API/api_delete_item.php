@@ -20,6 +20,20 @@
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $sql = "UPDATE order_info 
+        LEFT JOIN order_item_info ON order_item_info.order_id = order_info.order_id
+        SET order_info.status = 'Hủy'
+        WHERE order_info.status = 'Đang vận chuyển' AND order_item_info.item_id = ". $_POST['item_id'];
+        
+        if ($mysqli->query($sql)) {
+            $result['sql_status_1'] = "success";
+            $result['sql_log_1'] = $sql;
+        } else {
+            $result['sql_status_1'] = "fail to query";
+            $result['sql_log_1'] = $sql;
+        }
+
+
         $sql = "UPDATE item_info
         SET is_delete = 1
         WHERE item_id = '" . $_POST['item_id'] . "'";
