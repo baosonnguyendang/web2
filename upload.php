@@ -80,12 +80,12 @@
             <h4>Đăng bán</h4>
             <div>
                 <div class="container">
-                    <form action="./API/api_upload.php" method="post" id="form-item-data" enctype="multipart/form-data">
+                    <form action="./API/api_upload.php" method="post" id="form-item-data" enctype="multipart/form-data" onsubmit="alert('Đăng bán thành công');">
                         <label style='width: 120px; ' for="item_name">Tên sản phẩm: </label>
                         <input type="text" name="item_name" id="item_name" maxlength="200" required><br><br>
 
                         <label style='width: 120px; ' for="item_picture">Hình sản phẩm: </label>
-                        <input type="file" name="item_picture" id="item_picture" required><br><br>
+                        <input type="file" accept="image/*" name="item_picture" id="item_picture" required><br><br>
 
                         <label style='width: 120px; ' for="type">Danh mục: </label>
                         <select name="type" id="type" required>
