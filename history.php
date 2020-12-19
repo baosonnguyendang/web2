@@ -106,13 +106,13 @@
                     <table style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style='width: 6%'>Mã đơn</th>
+                                <th style='width: 8%'>Mã đơn</th>
                                 <th style='width: 10%'>Hình SP</th>
                                 <th style='width: 25%; text-align: left'>Tên sản phẩm</th>
                                 <th style='width: 15%'>Người mua</th>
                                 <th style='width: 13%'>Ngày mua</th>
                                 <th style='width: 13%'>Trạng thái</th>
-                                <th style='width: 18%'>Thành tiền</th>
+                                <th style='width: 16%'>Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,7 +126,7 @@
                                 $data = $mysqli->query($sql)->fetch_all();
                                 $html_string = "
                                     <tr>
-                                        <td style='width: 6%' rowspan = '" . count($data) . "'><h6>$order_id[0]</h6></td>
+                                        <td style='width: 8%' rowspan = '" . count($data) . "'><h6>$order_id[0]</h6></td>
                                 ";
                                 $flag =0;
                                 foreach($data as $item){
@@ -151,7 +151,7 @@
                                                 $html_string .= "<td style='width: 13%' rowspan = '" . count($data) . "'><h4 style='margin: 0'><span class='badge badge-warning'>$item[5]</span></h4></td>";
                                                 break;
                                         }
-                                        $html_string .= "<td style='width: 18%' rowspan = '" . count($data) . "'><h6>".number_format($item[6])."đ</h6></td>";
+                                        $html_string .= "<td style='width: 16%' rowspan = '" . count($data) . "'><h6>".number_format($item[6])."đ</h6></td>";
                                         $html_string .= "</tr>";
                                         $flag++;
                                     } else {
