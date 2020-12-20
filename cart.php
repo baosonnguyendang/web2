@@ -278,7 +278,7 @@
             // tinh tong tien
             var total_money = parseInt(0);
             var sale_money = parseInt(0);
-            var ship_money = parseInt(20000);
+            var ship_money = 20000;
 
             var cart = <?php echo isset($_COOKIE['cart'])? json_encode($_COOKIE['cart']) : 0 ?>;
             // console.log(cart)
@@ -311,6 +311,7 @@
                     `
                     $('#checkout1').append(html_string)
                     $('#order-btn').prop('disabled', true)
+                    ship_money = 0;
                 }
             } else {
                 html_string = `
@@ -318,6 +319,7 @@
                 `
                 $('#checkout1').append(html_string)
                 $('#order-btn').prop('disabled', true)
+                ship_money = 0;
             }
 
             // console.log(total_money)

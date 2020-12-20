@@ -240,11 +240,11 @@
                             <table style="display: flex; justify-content: center; font-size: 0.875rem; font-size: 20px;">
                                 <tr>
                                     <td style='width: 25vw; padding-right: 10px'>Tiền hàng (đã trừ khuyến mãi):</td>    
-                                    <td style='text-align: right'>20,000đ</td>                      
+                                    <td style='text-align: right'><?php echo number_format($order_data[1] - 20000);?>đ</td>                 
                                 </tr>
                                 <tr>
                                     <td style='width: 25vw; padding-right: 10px'>Phí vận chuyển:</td>
-                                    <td style='text-align: right'><?php echo number_format($order_data[1] - 20000);?>đ</td>
+                                    <td style='text-align: right'>20,000đ</td>    
                                 </tr>
                                 <tr style='border-top: 1px solid #7e7a7a;'>
                                     <td style='width: 25vw; padding-right: 10px'>Tổng tiền:</td>
