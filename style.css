@@ -176,8 +176,8 @@ html {
 
 #bar {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    left: 5px;
+    top: 60px;
     display: none;
     cursor: pointer;
     line-height: 50px;
@@ -185,8 +185,8 @@ html {
 
 #close {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    left: 5px;
+    top: 60px;
     display: none;
     cursor: pointer;
     line-height: 50px;
@@ -356,6 +356,15 @@ body{
         display: block;
     }
 
+    #cart {
+        margin-top: -7.5px;
+        margin-left: 40%;
+    }
+
+    #cart > :first-child, #cart > span {
+        display: none;
+    }
+
     #header {
         height: 60px;
     }
@@ -367,7 +376,6 @@ body{
     #slogan {
         height: 60px;
         line-height: 60px;
-        margin-left: 75px;
     }
 
     #footer1 {
