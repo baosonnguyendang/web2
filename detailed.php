@@ -303,10 +303,10 @@
                 </div>
                 <div id='f2'>
                     <p style='font-size: 20px;'><b>FOLLOW US</b></p>
-                    <a href="#"><span class="fa fa-facebook-official fa-2x" style='color: #4267B2;'></span></a>
-                    <a href="#"><span class="fa fa-twitter fa-2x" style='color: #1DA1F2;'></span></a>
-                    <a href="#"><span class="fa fa-skype fa-2x" style='color: #00AFF0;'></span></a>
-                    <a href="#"><span class="fa fa-youtube-play fa-2x" style='color: red;'></span></a>
+                    <a href="http://facebook.com/"><span class="fa fa-facebook-official fa-2x" style='color: #4267B2;'></span></a>
+                    <a href="http://twitter.com/"><span class="fa fa-twitter fa-2x" style='color: #1DA1F2;'></span></a>
+                    <a href="http://skype.com/"><span class="fa fa-skype fa-2x" style='color: #00AFF0;'></span></a>
+                    <a href="http://youtube.com/"><span class="fa fa-youtube-play fa-2x" style='color: red;'></span></a>
                 </div>
             </div>
         </div>
