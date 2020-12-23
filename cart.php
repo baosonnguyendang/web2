@@ -225,7 +225,7 @@
                 $("#close").css("display","none")
                 $("#bar").css("display","none")
             }
-            if (window.innerWidth > 767){
+            if (window.innerWidth > 720){
                 document.getElementById("menu").className = "menu";
                 $("#bar").css("display","none")
                 $("#close").css("display","none")

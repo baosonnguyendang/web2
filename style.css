@@ -165,6 +165,7 @@ html {
 }
 
 .menu2 li a {
+    color:black;
     cursor: pointer;
     padding-left: 5vw;
     font-style: italic;
@@ -185,11 +186,12 @@ html {
 
 #close {
     position: absolute;
-    left: 5px;
+    right: 5px;
     top: 60px;
     display: none;
     cursor: pointer;
     line-height: 50px;
+    z-index: 10;
 }
 
 .centered {
@@ -338,7 +340,7 @@ body{
     margin-right: 1rem;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 720px) {
     #bar {
         display: none;
     }
@@ -347,7 +349,7 @@ body{
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 720px) {
     .menu {
         display: none;
     }

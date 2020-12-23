@@ -66,7 +66,7 @@
                         </ul>
                 </li>
                 <li style='width: 140px;'><a href='./tracking.php'>Theo dõi đơn</a></li>
-                <li style='padding: 0 20px;'><a href='https://docs.google.com/spreadsheets/d/1bU182Yl9RNRS2NeX26YB8368lvxHcNjY4g_qDMoia1o/edit#gid=503289772'>Về chúng tôi</a></li>
+                <li style='width: 140px;'><a href='https://docs.google.com/spreadsheets/d/1bU182Yl9RNRS2NeX26YB8368lvxHcNjY4g_qDMoia1o/edit#gid=503289772'>Về chúng tôi</a></li>
             </ul>
             <div id='user'>
                 <?php
@@ -212,7 +212,7 @@
                 $("#close").css("display","none")
                 $("#bar").css("display","none")
             }
-            if (window.innerWidth > 767){
+            if (window.innerWidth > 720){
                 document.getElementById("menu").className = "menu";
                 $("#bar").css("display","none")
                 $("#close").css("display","none")
