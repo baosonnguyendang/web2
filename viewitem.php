@@ -253,6 +253,12 @@
             })
 
             // dropdown menu
+            if (window.innerWidth < 720){
+                document.getElementById('drop1').className = "drop2";
+                document.getElementById('drop2').className = "drop2";
+                console.log('a')
+            }
+
             $(".drop").hover(function(){
                 $(this).children("ul").css("display","block")
                 }, function(){
