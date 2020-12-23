@@ -54,7 +54,7 @@
         <div id='header2'>
             <ul id='menu' class='menu'>
                 <li style='width: 120px;'><a href='./trangchu.php'>Trang chủ</a></li>
-                <li style='width: 140px;' class='drop'>
+                <li style='width: 140px;' id='drop1' class='drop'>
                     <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
                     <ul class='category'>
                         <li><a href="./category.php?item_type=ram">RAM</a></li>
@@ -66,7 +66,7 @@
                         <li><a href="./category.php?item_type=psu">PSU</a></li>
                     </ul>
                 </li>
-                <li style='width: 120px;' class='drop'>
+                <li style='width: 120px;' id='drop2' class='drop'>
                     <span>Bán hàng <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
                         <ul class='category'>
                             <li><a href="./upload.php">Đăng bán</a></li>

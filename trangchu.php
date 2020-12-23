@@ -43,7 +43,7 @@
             <div id='header2'>
                 <ul id='menu' class='menu'>
                     <li style='width: 120px;'><a href='./trangchu.php'>Trang chủ</a></li>
-                    <li style='width: 140px;' class='drop'>
+                    <li style='width: 140px;' id='drop1' class='drop'>
                         <span>Danh mục <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
                         <ul class='category'>
                             <li><a href="./category.php?item_type=ram">RAM</a></li>
@@ -55,12 +55,12 @@
                             <li><a href="./category.php?item_type=psu">PSU</a></li>
                         </ul>
                     </li>
-                    <li style='width: 120px;' class='drop'>
+                    <li style='width: 120px;' id='drop2' class='drop'>
                         <span>Bán hàng <i style='margin-left: 7px;' class="fa fa-angle-down" aria-hidden="true"></i></span>
-                            <ul class='category'>
-                                <li><a href="./upload.php">Đăng bán</a></li>
-                                <li><a href="./manage.php">Quản lý</a></li>
-                            </ul>
+                        <ul class='category'>
+                            <li><a href="./upload.php">Đăng bán</a></li>
+                            <li><a href="./manage.php">Quản lý</a></li>
+                        </ul>
                     </li>
                     <li style='width: 140px;'><a href='./tracking.php'>Theo dõi đơn</a></li>
                     <li style='width: 140px;'><a href='https://docs.google.com/document/d/1lirKgYcULjKm-jU4IgOfcL8OS8NbwdXBYkV476QN6lo/edit'>Về chúng tôi</a></li>
@@ -197,6 +197,12 @@
         })
 
         // dropdown menu
+        if (window.innerWidth < 720){
+            document.getElementById('drop1').className = "drop2";
+            document.getElementById('drop2').className = "drop2";
+            console.log('a')
+        }
+
         $(".drop").hover(function(){
             $(this).children("ul").css("display","block")
             }, function(){

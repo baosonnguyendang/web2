@@ -146,33 +146,43 @@ html {
     background-color: #f1f1f1;
 }
 
+.drop2 {
+    display: contents;
+}
+
+.drop2 ul li{
+    display: block;
+    border-bottom: none;
+}
+
+.drop2 ul li a {
+    font-size: 0.875rem;
+}
+
 .menu2 {
     display: block;
     position: absolute;
     list-style: none;
     width: 100vw;
-    background-color: white;
+    background-color: #698b64;
     top: 60px;
     padding-left: 0px;
     z-index: 2;
 }
 
 .menu2 li {
+    width: 100% !important;
     height: 40px;
     line-height: 40px;
     margin-top: 5px;
-    border-bottom: 1px solid #aaa8a8;
+    /* border-bottom: 1px solid #aaa8a8; */
 }
 
-.menu2 li a {
-    color:black;
+.menu2 li a, .menu2 li span {
+    color:white;
     cursor: pointer;
     padding-left: 5vw;
     font-style: italic;
-}
-
-.menu2 li a:hover {
-    font-weight: bold;
 }
 
 #bar {
@@ -192,6 +202,7 @@ html {
     cursor: pointer;
     line-height: 50px;
     z-index: 10;
+    color: white;
 }
 
 .centered {
