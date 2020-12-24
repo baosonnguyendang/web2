@@ -1,6 +1,17 @@
 <?php
     session_start();
     if(isset($_SESSION['user_id'])){
+        $username = "root";
+        $password = "";
+        $hostname = "localhost"; 
+        $dbname = "csdl_web";
+        $mysqli = new mysqli("localhost",$username,$password,$dbname);
+
+        $sql = "SELECT * FROM user_info WHERE user_id = '" . $_SESSION['user_id'] . "'";
+        $user_data = $mysqli->query($sql)->fetch_assoc();
+        // echo "<pre>";
+        // var_dump($user_data);
+        // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -80,55 +91,72 @@
         <div id='history'>
             <div id='history1'>
                 <ul><span style='text-transform: uppercase; font-size: 1.5rem; padding-left: 5px;'><b>Tài khoản</b></span>
-                    <li id='user-tab-1' style='margin-top: 5px;'><i class="fa fa-user" aria-hidden="true"></i><span>Thông tin tài khoản</span></a></li>
-                    <li id='user-tab-2'><i class="fa fa-key" aria-hidden="true"></i><span>Đổi mật khẩu</span></a></li>
+                    <li id='user-tab-1' style='margin-top: 5px; cursor: pointer;'><i class="fa fa-user" aria-hidden="true"></i><span>Thông tin tài khoản</span></a></li>
+                    <li id='user-tab-2' style="cursor: pointer;"><i class="fa fa-key" aria-hidden="true"></i><span>Đổi mật khẩu</span></a></li>
                 </ul>
             </div>
             <div id='history2'>
                 <h4>Thay đổi thông tin tài khoản</h4>
                 <div>
                     <div id='manage-table'>
-                        <form>
+                        <form id="user-info" onSubmit="event.preventDefault()">
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Tên đăng nhập</label>
+                                <label for="name" class="col-sm-2 col-form-label">Tên người dùng</label>
                                 <div class="col-sm-10">
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                                    <input type="text" required class="form-control-plaintext" id="name" name="name" value="<?php echo $user_data['name'] ?>"maxlength="200">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="text" required class="form-control-plaintext" id="email" name="email" value="<?php echo $user_data['email'] ?>" maxlength="30">
+                                    <span id="email-error" style="color: red; float: left; font-size: 15px;"></span>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="address" class="col-sm-2 col-form-label">Địa chỉ</label>
+                                <div class="col-sm-10">
+                                    <input type="text" required class="form-control-plaintext" id="address" name="address" value="<?php echo $user_data['address'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-sm-2 col-form-label">SĐT</label>
+                                <div class="col-sm-10">
+                                    <input type="number" required class="form-control-plaintext" id="phone" name="phone" value="<?php echo $user_data['phone'] ?>"  minlength="10" maxlength="15">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="check_data()">Cập nhập</button>
                         </form>
                     </div>
                 </div>
-            </div>r
+            </div>
             <div id='history3'>
                 <h4>Đổi mật khẩu</h4>
                 <div>
                     <div id='manage-table-2'>
-                        <form>
+                        <form id="update-pass-form" onSubmit="event.preventDefault()">
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">Nhập mật khẩu hiện tại</label>
+                                <label for="curr_pass" class="col-sm-3 col-form-label">Nhập mật khẩu hiện tại</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="curr_pass" name="curr_pass" placeholder="Password">
+                                        <span id="curr-pass-error" style="color: red; float: left; font-size: 15px;"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">Mật khẩu mới</label>
+                                <label for="new_pass" class="col-sm-3 col-form-label">Mật khẩu mới</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="new_pass" name="new_pass" placeholder="Password">
+                                        <span id="new-pass-error" style="color: red; float: left; font-size: 15px;"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">Xác nhận mật khẩu mới</label>
+                                <label for="new_pass_confirm" class="col-sm-3 col-form-label">Xác nhận mật khẩu mới</label>
                                 <div class="col-sm-9">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="new_pass_confirm" name="new_pass_confirm" placeholder="Password">
+                                        <span id="new-pass-confirm-error" style="color: red; float: left; font-size: 15px;"></span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mb-2">Xác nhận</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="update_pass()">Xác nhận</button>
                         </form>
                     </div>
                 </div>
@@ -209,70 +237,93 @@
                 $("#user-tab-2").css("background-color", "#aaa8")
             }) 
 
-            // console.log($('#manage-table tbody'))
-
-            function fill_data(item_id, item_name, item_date){
-                html_string = `
-                    <tr>
-                        <td style='width: 15vw'>` + item_id + `</td>
-                        <td style='width: 30vw; text-align: left'><a href="./viewitem.php?item_id=` + item_id + `">` + item_name + `</a></td>
-                        <td style='width: 15vw'>` + item_date + `</td>
-                        <td style='width: 20vw'><button class='btn btn-danger' onclick='remove_item(this)'>Hủy bán</button></td>
-                    </tr>
-                `
-                $('#manage-table tbody').append(html_string)
+            function check_email() {
+                let email = document.getElementById("email")
+                var re = /\S+@\S+\.\S+/;
+                result = re.test(email.value)
+                // console.log (email.value);
+                if (result) {
+                    $('#email-error').html('')
+                    return 1
+                } else {
+                    $('#email-error').html('Email không hợp lệ')
+                    return 0
+                }
             }
-
-            // function reformat_date(date_var){
-            //     year = date_var.substring(0,4)
-            //     month = date_var.substring(5,7)
-            //     day = date_var.substring(8,10)
-            //     return day + "/" + month + "/" + year
-            // }
-
-            function load_data(){
-                $.ajax({
-                    type: "GET",
-                    url: "./API/api_get_item_data.php",
-                    async: false,
-                    data:{'get_case' : 2},
-                    success: function(response){
-                        result = JSON.parse(response)
-                        // console.log(result)
-                        item_list = result['item_data']
-                        // console.log(item_list)
-                        $.each(item_list, function(key, item){
-                            // date_time = reformat_date(item[5])
-                            // myDate = new Date(date_time).toISOString().slice(0,10)
-                            // console.log(date_time)
-                            // console.log(myDate)
-                            fill_data(item[0], item[1], item[5])
-                        })
-                    }
-                })
-            }
-
-            function remove_item(element){
-                item_id = element.parentNode.parentNode.children[0].textContent
-                confirm_text = "Bạn có chắc muốn xóa sản phẩm này?"
-                if(confirm(confirm_text)){
+            
+            function check_data() {
+                error_string = check_email()
+                form_data = $('#user-info').serialize()
+                if(error_string){
                     $.ajax({
                         type: "POST",
-                        url: "./API/api_delete_item.php",
-                        async: false,
-                        data: {'item_id' : item_id},
+                        url: "./API/api_update_user_info.php",
+                        data: form_data,
                         success: function(response){
                             result = JSON.parse(response)
-                            // console.log(result)
+                            if(result['sql_status'] == "success"){
+                                alert("Cập nhập dữ liệu thành công")
+                                location.reload()
+                            } else {
+                                alert("Cập nhập dữ liệu thất bại")
+                            }
                         }
                     })
-                    $('#manage-table tbody').html('')
-                    load_data()
                 }
             }
 
-            window.onload = load_data()
+            function check_password(){
+                let new_pass = document.getElementById("new_pass")
+                if(new_pass.value.length < 5){
+                    document.getElementById("new-pass-error").innerHTML="Mật khẩu không thể ít hơn 5 ký tự"
+                    return 1
+                } else if(new_pass.value.length > 30){
+                    document.getElementById("new-pass-error").innerHTML="Mật khẩu không thể nhiều hơn 30 ký tự"
+                    return 1
+                } else {
+                    document.getElementById("new-pass-error").innerHTML=""
+                    return 0
+                }
+            }
 
+            function check_confirm_password(){
+                let new_pass = document.getElementById("new_pass")
+                let new_pass_confirm = document.getElementById("new_pass_confirm")
+                if(new_pass_confirm.value != new_pass.value){
+                    document.getElementById("new-pass-confirm-error").innerHTML = "Mật khẩu không chính xác"
+                    return 1
+                } else {
+                    document.getElementById("new-pass-confirm-error").innerHTML = ""
+                    return 0
+                }
+            }
+
+            function update_pass(){
+                err_flag = check_password();
+                err_flag += check_confirm_password();
+                form_data = $('#update-pass-form').serialize()
+                if(!err_flag){
+                    $.ajax({
+                        type: "POST",
+                        url: "API/api_update_password.php",
+                        data: form_data,
+                        asynch: false,
+                        success: function(response){
+                            result = JSON.parse(response)
+                            if(result['is_correct_pass'] == "success"){
+                                if(result['sql_status'] == "success"){
+                                    alert("Cập nhập mật khẩu thành công")
+                                    location.reload()
+                                } else {
+                                    alert("Cập nhập mật khẩu thất bại")
+                                }
+                            } else {
+                                document.getElementById("curr-pass-error").innerHTML="Mật khẩu không chính xác"
+                            }
+                        }
+                    })
+                }
+            }
         </script>
     </body>
 </html>
