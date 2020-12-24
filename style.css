@@ -642,7 +642,7 @@ body{
     padding: 1rem 0;
 }
 
-#manage-table {
+#manage-table, #manage-table-2 {
     text-align: center;
     background-color: white;
     border-radius: 5px;
@@ -836,6 +836,17 @@ body{
     margin: 0 1%;
 }
 
-#history2 h4 {
+#history2 h4, #history3 h4 {
     margin-bottom: 1rem;
+}
+
+#history3 {
+    display: none;
+    float: right;
+    width: 75%;
+    margin: 0 1%;
+}
+
+#user-tab-1 {
+    background-color: #aaa8;
 }
