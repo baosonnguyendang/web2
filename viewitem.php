@@ -1,8 +1,7 @@
 <?php
     session_start();
-    if($_SESSION['is_admin']){
-        header("Location: admin.php");
-    } else if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['item_id'])){
+    if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['item_id'])){
+        
         $username = "root";
         $password = "";
         $hostname = "localhost"; 
@@ -10,19 +9,21 @@
         $mysqli = new mysqli("localhost",$username,$password,$dbname);
 
         
-        $sql = "SELECT * FROM item_info LEFT JOIN user_info ON item_info.seller_id = user_info.user_id WHERE item_id = '".$_GET['item_id']."'";
+        $sql = "SELECT item_info.*, user_info.username, user_info.is_delete as seller_is_delete  FROM item_info LEFT JOIN user_info ON item_info.seller_id = user_info.user_id WHERE item_id = '".$_GET['item_id']."'";
         $item['item_data'] = $mysqli->query($sql)->fetch_assoc();
         // echo "<pre>";
         // var_dump($item['item_data']);
+        // var_dump($sql);
         // echo "</pre>";
 
         $sql = "SELECT * FROM comment_info 
                 LEFT JOIN user_info ON user_info.user_id = comment_info.cmt_user_id 
-                WHERE comment_info.item_id = '" . $_GET['item_id']. "' AND is_delete = 0
+                WHERE comment_info.item_id = '" . $_GET['item_id']. "' AND comment_info.is_delete = 0
                 ORDER BY cmt_date DESC";
         $cmt_list = $mysqli->query($sql)->fetch_all();
         // echo "<pre>";
         // var_dump($cmt_list);
+        // var_dump($sql);
         // echo "</pre>";
 ?>
 
@@ -121,6 +122,12 @@
                                 <div id='ssd9'>
                                     <button type="button" class="btn btn-primary" onclick="buy_out()"><b>MUA LUÔN</b></button>
                                     <button type="button" class="btn btn-secondary" onclick="add_to_cart()"><b>THÊM VÀO GIỎ ĐÃ</b></button>
+                                </div>
+                            <?php
+                                } else if($item['item_data']['seller_is_delete']) {
+                            ?>
+                                <div>
+                                    <span class="badge badge-danger">NGƯỜI BÁN ĐÃ BỊ CHẶN</span>
                                 </div>
                             <?php
                                 } else {

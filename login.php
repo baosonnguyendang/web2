@@ -1,8 +1,6 @@
 <?php
     session_start();
-    if($_SESSION['is_admin']){
-        header("Location: admin.php");
-    } else if(!isset($_SESSION['user_id'])){
+    if(!isset($_SESSION['user_id']) && !isset($_SESSION['is_admin'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -360,6 +358,8 @@
 </body>
 </html>
 <?php 
+    } else if($_SESSION['is_admin']){
+        header("Location: admin.php");
     } else {
         header("Location: trangchu.php");
     }

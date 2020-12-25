@@ -1,8 +1,9 @@
 <?php
     session_start();
-    if($_SESSION['is_admin']){
-        header("Location: admin.php");
-    } else if(isset($_SESSION['user_id'])){
+    if(isset($_SESSION['user_id']) && isset($_SESSION['is_admin'])){
+        if($_SESSION['is_admin'] == 1){
+            header("Location: admin.php");
+        }
         $username = "root";
         $password = "";
         $hostname = "localhost"; 

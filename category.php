@@ -1,8 +1,11 @@
 <?php
     session_start();
-    if($_SESSION['is_admin']){
-        header("Location: admin.php");
-    } else if(isset($_GET['item_type'])){
+    if(isset($_SESSION['user_id']) && isset($_SESSION['is_admin'])){
+        if($_SESSION['is_admin'] == 1){
+            header("Location: admin.php");
+        }
+    }
+    if(isset($_GET['item_type'])){
 ?>
 
 <!DOCTYPE html>
@@ -261,17 +264,21 @@
                 
                 html_string += `
                         <div style="display: flex; width: 100%; flex-wrap: wrap;">`
-                $.each(item_array, function(index, item){
-                    html_string += `
-                        <div class="card" style="min-width: 180px;" onclick="view_item(this)">
-                            <img src='` + item[2] + `' alt=''>
-                            <div class="container">
-                                <p style='font-size: 13px;'>` + item[1] + `</p>
-                                <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
-                            </div>
-                            <input type="hidden" name="item_id" value="` + item[0] + `">
-                        </div>`
-                })
+                if(item_array.length > 0){
+                    $.each(item_array, function(index, item){
+                        html_string += `
+                            <div class="card" style="min-width: 180px;" onclick="view_item(this)">
+                                <img src='` + item[2] + `' alt=''>
+                                <div class="container">
+                                    <p style='font-size: 13px;'>` + item[1] + `</p>
+                                    <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
+                                </div>
+                                <input type="hidden" name="item_id" value="` + item[0] + `">
+                            </div>`
+                    })
+                } else {
+                    html_string += `<h4>Hiện không có sản phẩm</h4>`
+                }
 
                 html_string += `</div></div>`
                 $('#mid').append(html_string)
@@ -288,12 +295,7 @@
                             result = JSON.parse(response)
                             console.log(result['item_data'])
                             // console.log(value)
-                            if(result['item_data'].length != 0){
                                 fill_data(value, result['item_data'])
-                            } else {
-                                html_string = `<h4>Hiện không có sản phẩm</h4>`
-                                $('#mid').append(html_string)
-                            }
                         }
                     })
                 })
