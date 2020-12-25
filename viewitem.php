@@ -1,6 +1,8 @@
 <?php
     session_start();
-    if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['item_id'])){
+    if($_SESSION['is_admin']){
+        header("Location: admin.php");
+    } else if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['item_id'])){
         $username = "root";
         $password = "";
         $hostname = "localhost"; 

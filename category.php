@@ -1,6 +1,8 @@
 <?php
     session_start();
-    if(isset($_GET['item_type'])){
+    if($_SESSION['is_admin']){
+        header("Location: admin.php");
+    } else if(isset($_GET['item_type'])){
 ?>
 
 <!DOCTYPE html>

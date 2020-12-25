@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if($_SESSION['is_admin']){
+        header("Location: admin.php");
+    } else if(!isset($_SESSION['user_id'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -339,3 +342,8 @@
     </script>
 </body>
 </html>
+<?php 
+    } else {
+        header("Location: trangchu.php");
+    }
+?>
