@@ -24,22 +24,28 @@
             case 0:
                 $result['type'] = $_GET['type'];
 
-                $sql = !empty($result['type'])? "SELECT * FROM item_info WHERE type='".$result['type']."' AND is_delete = 0" : "SELECT * FROM item_info AND is_delete = 0 ORDER BY type ASC";
+                $sql = !empty($result['type'])? "SELECT item_info.* FROM item_info 
+                                                LEFT JOIN user_info ON user_info.user_id = item_info.seller_id
+                                                WHERE type='".$result['type']."' AND item_info.is_delete = 0 AND user_info.is_delete = 0" : 
+                                                "SELECT * FROM item_info WHERE is_delete = 0 ORDER BY type ASC";
                 break;
             case 1:
-                $sql = "SELECT * FROM item_info 
+                $sql = "SELECT item_info.* FROM item_info 
                         WHERE item_id ='" . $_GET['item_id'] . "'";
                 break;
             case 2:
                 $seller_id = $_SESSION['user_id'];
-                $sql = "SELECT * FROM item_info 
+                $sql = "SELECT item_info.* FROM item_info 
                         WHERE seller_id = '" . $seller_id . "' AND is_delete = 0";
                 break;
             //get order data
             case 3:
                 $buyer_id = $_SESSION['user_id'];
-                $sql = "SELECT * FROM order_info 
+                $sql = "SELECT order_info.* FROM order_info 
                         WHERE buyer_id = '" . $buyer_id . "'";
+                break;
+            case 4:
+                $sql = "SELECT item_info.* FROM item_info ORDER BY type ASC";
                 break;
         }
 
@@ -50,7 +56,7 @@
         } else {
             $result['sql_status'] = "fail";
             $result['sql_log'] = $sql;
-            $result['item_data'] = $mysqli->query($sql)->fetch_all();
+            // $result['item_data'] = $mysqli->query($sql)->fetch_all();
         }
     }
 

@@ -41,6 +41,16 @@
         if ($mysqli->query($sql)) {
             $result['sql_status'] = "success";
             $result['sql_log'] = $sql;
+
+            //delete item from cookies
+            $item_id = $_POST['item_id'];
+            $cart = isset($_COOKIE['cart'])? json_decode(stripslashes($_COOKIE['cart']), true) : [] ; 
+            foreach($cart as &$user_cart){
+                if(isset($user_cart[$item_id])){
+                    unset($user_cart[$item_id]);
+                }
+            }            
+            setcookie('cart', json_encode($cart), time()+60*60*24*30, '/');
         } else {
             $result['sql_status'] = "fail to query";
             $result['sql_log'] = $sql;

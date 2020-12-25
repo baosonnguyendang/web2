@@ -48,6 +48,7 @@
                 
                 setcookie('cart', json_encode($cart), time()+60*60*24*30, '/');
                 $result['cookie_set'] = "success";
+                break;
 
         }
     }
