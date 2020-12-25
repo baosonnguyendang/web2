@@ -124,7 +124,8 @@ CREATE TABLE `user_info` (
   `name` varchar(200) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
-  `is_admin` int(11) DEFAULT 0
+  `is_admin` int(11) DEFAULT 0,
+  `is_delete` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
