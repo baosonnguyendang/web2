@@ -266,20 +266,24 @@
                         <div style="display: flex; width: 100%; flex-wrap: wrap;">`
 
                 limit_item_show = 9
-                $.each(item_array, function(index, item){
-                    if(limit_item_show){
-                        html_string += `
-                            <div class="card" style="min-width: 180px;" onclick="view_item(this)">
-                                <img src='` + item[2] + `' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>` + item[1] + `</p>
-                                    <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
-                                </div>
-                                <input type="hidden" name="item_id" value="` + item[0] + `">
-                            </div>`
-                        limit_item_show--
-                    }
-                })
+                if(item_array.length > 0){
+                    $.each(item_array, function(index, item){
+                        if(limit_item_show){
+                            html_string += `
+                                <div class="card" style="min-width: 180px;" onclick="view_item(this)">
+                                    <img src='` + item[2] + `' alt=''>
+                                    <div class="container">
+                                        <p style='font-size: 13px;'>` + item[1] + `</p>
+                                        <p><b>` + Number(item[7]).toLocaleString('en') + ` VND</b></p>
+                                    </div>
+                                    <input type="hidden" name="item_id" value="` + item[0] + `">
+                                </div>`
+                            limit_item_show--
+                        }
+                    })
+                } else {
+                    html_string += `<h5>Hiện không có sản phẩm</h5>`
+                }
 
                 html_string += `</div></div>`
                 $('#mid').append(html_string)
