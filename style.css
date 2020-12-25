@@ -147,11 +147,15 @@ html {
 }
 
 .drop2 {
-    display: contents;
+    display: contents !important;
+}
+
+.drop2 ul {
+    display: block !important;
 }
 
 .drop2 ul li{
-    display: block;
+    display: block !important;
     border-bottom: none;
 }
 
