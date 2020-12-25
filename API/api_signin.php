@@ -31,6 +31,7 @@
                 // print $result['user_data'];
                 $_SESSION['username'] = $result['user_data']['username'];
                 $_SESSION['user_id'] = $result['user_data']['user_id'];
+                $_SESSION['is_admin'] = $result['user_data']['is_admin'];
             } else {
                 $result['sql_status'] = "fail";
                 $result['sql_log'] = $sql;
