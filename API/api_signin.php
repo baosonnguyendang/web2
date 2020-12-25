@@ -29,6 +29,7 @@
                 $result['sql_status'] = "success";
                 $result['sql_log'] = $sql;
                 $result['user_data'] = $mysqli->query($sql)->fetch_assoc();
+                $result['is_admin'] = $result['user_data']['is_admin'];
                 // print $result['user_data'];
                 if(!$result['user_data']['is_delete']){
                     $_SESSION['username'] = $result['user_data']['username'];

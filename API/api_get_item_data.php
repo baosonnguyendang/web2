@@ -27,7 +27,7 @@
                 $sql = !empty($result['type'])? "SELECT item_info.* FROM item_info 
                                                 LEFT JOIN user_info ON user_info.user_id = item_info.seller_id
                                                 WHERE type='".$result['type']."' AND item_info.is_delete = 0 AND user_info.is_delete = 0" : 
-                                                "SELECT * FROM item_info WHERE is_delete = 0 ORDER BY type ASC";
+                                                "SELECT * FROM item_info WHERE is_delete = 0 ORDER BY item_id ASC";
                 break;
             case 1:
                 $sql = "SELECT item_info.* FROM item_info 
@@ -43,9 +43,6 @@
                 $buyer_id = $_SESSION['user_id'];
                 $sql = "SELECT order_info.* FROM order_info 
                         WHERE buyer_id = '" . $buyer_id . "'";
-                break;
-            case 4:
-                $sql = "SELECT item_info.* FROM item_info ORDER BY type ASC";
                 break;
         }
 

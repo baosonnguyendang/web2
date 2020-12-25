@@ -344,10 +344,14 @@
                     console.log(result)
                     if(result['sql_status'] == "success"){
                         if(!result['is_delete']){
-                            window.location = "trangchu.php"
-                        } else [
+                            if(result['is_admin'] == 1){
+                                window.location = "admin.php"
+                            } else {
+                                window.location = "trangchu.php"
+                            }
+                        } else {
                             $('#signin-error').html('Tài khoản đã bị khóa bởi quản trị viên<br>')
-                        ]
+                        }
                     } else {
                         $('#signin-error').html('Sai tên đăng nhập hoặc mật khẩu<br>')
                     }

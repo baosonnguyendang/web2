@@ -12,7 +12,7 @@
         $sql = "SELECT item_info.*, user_info.username, user_info.is_delete as seller_is_delete  FROM item_info LEFT JOIN user_info ON item_info.seller_id = user_info.user_id WHERE item_id = '".$_GET['item_id']."'";
         $item['item_data'] = $mysqli->query($sql)->fetch_assoc();
         // echo "<pre>";
-        // var_dump($item['item_data']);
+        // var_dump($item['item_data']['seller_is_delete']);
         // var_dump($sql);
         // echo "</pre>";
 
@@ -117,23 +117,23 @@
                             <h3><?php echo number_format($item['item_data']['price']);?> VNĐ</h3>
                             <span>Người bán: <?php echo $item['item_data']['username'];?></span><br><br>
                             <?php
-                                if(!$item['item_data']['is_delete']){
-                            ?>
-                                <div id='ssd9'>
-                                    <button type="button" class="btn btn-primary" onclick="buy_out()"><b>MUA LUÔN</b></button>
-                                    <button type="button" class="btn btn-secondary" onclick="add_to_cart()"><b>THÊM VÀO GIỎ ĐÃ</b></button>
-                                </div>
-                            <?php
-                                } else if($item['item_data']['seller_is_delete']) {
+                                if($item['item_data']['seller_is_delete']){
                             ?>
                                 <div>
                                     <span class="badge badge-danger">NGƯỜI BÁN ĐÃ BỊ CHẶN</span>
                                 </div>
                             <?php
-                                } else {
+                                } else if($item['item_data']['is_delete']){
                             ?>
                                 <div>
                                     <span class="badge badge-danger">SẢN PHẨM ĐÃ NGỪNG KINH DOANH</span>
+                                </div>
+                            <?php
+                                } else {
+                            ?>
+                                <div id='ssd9'>
+                                    <button type="button" class="btn btn-primary" onclick="buy_out()"><b>MUA LUÔN</b></button>
+                                    <button type="button" class="btn btn-secondary" onclick="add_to_cart()"><b>THÊM VÀO GIỎ ĐÃ</b></button>
                                 </div>
                             <?php
                                 }
