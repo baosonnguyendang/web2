@@ -77,74 +77,9 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style='margin-left: 0;'>
                 <div id='mid' style="width:100%">
-                    <!-- <div id='sale'>
-                        <h3><i>Giá sốc tận nóc</i></h3>
-                        <div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000 VND</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000 VND</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000VND</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id='view'>
-                        <h3><i>Xem nhiều hôm nay</i></h3>
-                        <div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000 VND</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000 VND</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000VND</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='item-showcase'>
-                        <h3><i>Xem nhiều hôm nay</i></h3>
-                        <div style="display: flex; width: 100%; flex-wrap: wrap;">
-                            <div class="card" style="min-width: 180px;">
-                                <img src='./images/sp1.jpg' alt=''>
-                                <div class="container">
-                                    <p style='font-size: 13px;'>Ổ cứng SSD Samsung 860 QVO 1TB 2.5" (Mz-76Q1T0BW)</p>
-                                    <p><b>20.000 VND</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+            
                 </div>
             </div>
             <div class="row">
