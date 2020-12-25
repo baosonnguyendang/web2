@@ -91,7 +91,7 @@
                 <div id='user'>
                     <?php
                         if(isset($_SESSION['username'])){
-                            echo '<i class="fa fa-user fa-lg" aria-hidden="true"></i><span style="cursor: context-menu;">'.$_SESSION['username'].'</span><span>|</span><span><a href="./API/api_signout.php">Đăng xuất</a></span>';
+                            echo '<i class="fa fa-user fa-lg" aria-hidden="true"></i><a href="./user.php"><span style="cursor: pointer;">'.$_SESSION['username'].'</span></a><span>|</span><span><a href="./API/api_signout.php">Đăng xuất</a></span>';
                         } else {
                             echo '<a href="./login.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span>Đăng nhập/Đăng ký</span></a>';
                         }
@@ -226,11 +226,13 @@
             $("#bar").click(function(){
                 $("#bar").css("display","none")
                 $("#close").css("display","block")
+                $("body").css("overflow","hidden")
                 document.getElementById('menu').className = "menu2";
             })
             $("#close").click(function(){
                 $("#close").css("display","none")
                 $("#bar").css("display","block")
+                $("body").css("overflow","")
                 document.getElementById("menu").className = "menu";
             })
             $(window).resize(function(){
@@ -248,6 +250,18 @@
                     document.getElementById("menu").className = "menu";
                     $("#bar").css("display","none")
                     $("#close").css("display","none")
+                    document.getElementById('drop1').className = "drop";
+                    document.getElementById('drop2').className = "drop";
+                    $(".drop").hover(function(){
+                        $(this).children("ul").css("display","block")
+                        }, function(){
+                        $(this).children("ul").css("display","none")
+                    })  
+                }
+                else {
+                    document.getElementById('drop1').className = "drop2";
+                    document.getElementById('drop2').className = "drop2";
+                    console.log('a')
                 }
                 if ($("#bar").css("display") == 'none' && $("#close").css("display") == 'none'){
                     document.getElementById("menu").className = "menu";
@@ -258,7 +272,6 @@
             if (window.innerWidth < 720){
                 document.getElementById('drop1').className = "drop2";
                 document.getElementById('drop2').className = "drop2";
-                console.log('a')
             }
 
             $(".drop").hover(function(){
