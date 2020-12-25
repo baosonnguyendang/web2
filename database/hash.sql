@@ -123,7 +123,8 @@ CREATE TABLE `user_info` (
   `email` varchar(30) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
   `address` text DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL
+  `phone` varchar(15) DEFAULT NULL,
+  `is_admin` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -135,6 +136,8 @@ INSERT INTO `user_info` (`user_id`, `username`, `password`, `email`, `name`, `ad
 (2, 'hoangtruong99', 'hoangtruong', 'hoangtruong99@gmail.com', 'Truong Minh Hoang', 'HCM', '0356478215'),
 (3, 'baosonnguyen', '9874563210', 'baosonnguyen@gmail.com', 'Nguyen Dang Bao Son', 'HCM', '0356478215'),
 (4, 'huyduong99', 'huyduong', 'huyduong99@gmail.com', 'Duong Quang Huy', 'HCM', '0356478215');
+
+INSERT INTO `user_info` (`user_id`, `username`, `password`, `is_admin`) VALUES(5, 'admin', 'admin',1);
 
 --
 -- Indexes for dumped tables
