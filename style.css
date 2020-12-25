@@ -171,7 +171,7 @@ html {
     background-color: #698b64;
     top: 60px;
     padding-left: 0px;
-    z-index: 2;
+    z-index: 20;
 }
 
 .menu2 li {
@@ -205,7 +205,7 @@ html {
     display: none;
     cursor: pointer;
     line-height: 50px;
-    z-index: 10;
+    z-index: 21;
     color: white;
 }
 

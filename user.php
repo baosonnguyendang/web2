@@ -181,11 +181,13 @@
             $("#bar").click(function(){
                 $("#bar").css("display","none")
                 $("#close").css("display","block")
+                $("body").css("overflow","hidden")
                 document.getElementById('menu').className = "menu2";
             })
             $("#close").click(function(){
                 $("#close").css("display","none")
                 $("#bar").css("display","block")
+                $("body").css("overflow","")
                 document.getElementById("menu").className = "menu";
             })
             $(window).resize(function(){
@@ -203,6 +205,18 @@
                     document.getElementById("menu").className = "menu";
                     $("#bar").css("display","none")
                     $("#close").css("display","none")
+                    document.getElementById('drop1').className = "drop";
+                    document.getElementById('drop2').className = "drop";
+                    $(".drop").hover(function(){
+                        $(this).children("ul").css("display","block")
+                        }, function(){
+                        $(this).children("ul").css("display","none")
+                    })  
+                }
+                else {
+                    document.getElementById('drop1').className = "drop2";
+                    document.getElementById('drop2').className = "drop2";
+                    console.log('a')
                 }
                 if ($("#bar").css("display") == 'none' && $("#close").css("display") == 'none'){
                     document.getElementById("menu").className = "menu";
@@ -213,7 +227,6 @@
             if (window.innerWidth < 720){
                 document.getElementById('drop1').className = "drop2";
                 document.getElementById('drop2').className = "drop2";
-                console.log('a')
             }
 
             $(".drop").hover(function(){
