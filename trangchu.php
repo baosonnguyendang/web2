@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if($_SESSION['is_admin']){
+        header("Location: admin.php");
+    }
 ?>
 
 <!DOCTYPE html>
