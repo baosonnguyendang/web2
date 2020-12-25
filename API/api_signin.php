@@ -9,6 +9,7 @@
 
     $result['post_data'] = $_POST;
     $result['sql_status'] = "fail";
+    $result['is_delete'] = 0;
     // Check connection
     if ($mysqli->connect_error) {
         $result['db_status']="fail";
@@ -29,9 +30,13 @@
                 $result['sql_log'] = $sql;
                 $result['user_data'] = $mysqli->query($sql)->fetch_assoc();
                 // print $result['user_data'];
-                $_SESSION['username'] = $result['user_data']['username'];
-                $_SESSION['user_id'] = $result['user_data']['user_id'];
-                $_SESSION['is_admin'] = $result['user_data']['is_admin'];
+                if(!$result['user_data']['is_delete']){
+                    $_SESSION['username'] = $result['user_data']['username'];
+                    $_SESSION['user_id'] = $result['user_data']['user_id'];
+                    $_SESSION['is_admin'] = $result['user_data']['is_admin'];
+                } else {
+                    $result['is_delete'] = 1;
+                }
             } else {
                 $result['sql_status'] = "fail";
                 $result['sql_log'] = $sql;
