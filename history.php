@@ -136,7 +136,7 @@
                                         if(!$flag){
                                             $html_string .= "
                                                     <td style='width: 10%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
-                                                    <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                                    <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id=" . $item[0] . "'>" . $item[2] . "</a></td>
                                                     <td style='width: 15%;' rowspan = '" . count($data) . "'><h6>$item[3]</h6></td>
                                                     <td style='width: 13%;' rowspan = '" . count($data) . "'><h6>$item[4]</h6></td>
                                             ";
@@ -161,7 +161,7 @@
                                             $html_string .= "
                                                 <tr>
                                                     <td style='width: 10%;'><img style='height: 5vw' src='" . $item[1] . "'></td>
-                                                    <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id='" . $item[0] . ">" . $item[2] . "</a></td>
+                                                    <td style='width: 25%; text-align: left'><a href='./viewitem.php?item_id=" . $item[0] . "'>" . $item[2] . "</a></td>
                                                 </tr>
                                             ";
                                         }
