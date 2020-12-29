@@ -24,14 +24,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-10">
+            <div class="col-10" style="margin-top: 1rem; margin-bottom: 1rem;">
                 <h1>Trang admin</h1>
             </div>
             <div class="col-2" style="display: flex; justify-content: center; align-items: center;">
                 <a href="./API/api_signout.php" type="button" class="btn btn-primary" style="float: left">Đăng xuất</a>
             </div>
         </div>
-        <h2>Người dùng</h2>
+        <h2 style="margin-bottom: 1rem;">Người dùng</h2>
         <table id="user-table" class="table table-hover">
             <thead>
                 <tr>
@@ -47,7 +47,7 @@
             <tbody>
             </tbody>
         </table>
-        <h2>Sản phẩm</h2>
+        <h2 style="margin-bottom: 1rem;">Sản phẩm</h2>
         <table id="item-table" class="table table-hover">
             <thead>
                 <tr>
