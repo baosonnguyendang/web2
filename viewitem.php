@@ -253,7 +253,7 @@
                     $("#close").css("display","none")
                     $("#bar").css("display","none")
                 }
-                if (window.innerWidth > 720){
+                if (window.innerWidth > 1024){
                     document.getElementById("menu").className = "menu";
                     $("#bar").css("display","none")
                     $("#close").css("display","none")
@@ -276,7 +276,7 @@
             })
 
             // dropdown menu
-            if (window.innerWidth < 720){
+            if (window.innerWidth < 1024){
                 document.getElementById('drop1').className = "drop2";
                 document.getElementById('drop2').className = "drop2";
             }

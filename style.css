@@ -355,7 +355,7 @@ body{
     margin-right: 1rem;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 1024px) {
     #bar {
         display: none;
     }
@@ -364,7 +364,7 @@ body{
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1024px) {
     .menu {
         display: none;
     }
