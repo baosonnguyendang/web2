@@ -33,6 +33,8 @@
             $status = "Hoàn tiền";
             break;
     }
+    
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     $datetime = date('Y-m-d H:i:s');
     if ($_POST['status_case'] == "Đang vận chuyển"){
         $sql = "UPDATE order_info SET status='" . $status . "' WHERE order_id = " . $_POST['order_id'];

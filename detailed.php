@@ -264,6 +264,7 @@
                                             } else {
                                                 $date_deliver = new DateTime($order_data[5]);
                                                 
+                                                date_default_timezone_set('Asia/Ho_Chi_Minh');
                                                 $datetime = date('Y-m-d H:i:s');
                                                 $date_refund = new DateTime($datetime);
 

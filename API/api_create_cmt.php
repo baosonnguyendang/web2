@@ -20,6 +20,7 @@
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $datetime = date('Y-m-d H:i:s');
         $sql = "INSERT INTO comment_info(cmt_content, cmt_user_id, is_delete, item_id, cmt_date) 
                 VALUES ('" . $_POST['cmt_content'] . "', '" . $_SESSION['user_id'] . "', 0, '" . $_POST['item_id'] . "', '" . $datetime . "')";

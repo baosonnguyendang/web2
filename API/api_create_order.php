@@ -21,6 +21,8 @@
 
     $buyer_id = $_SESSION['user_id'];
     $item_list = json_decode(stripslashes($_COOKIE['cart']), true);
+    
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     $datetime = date('Y-m-d H:i:s');
     
     $sql = "INSERT INTO order_info( price, create_date, status, buyer_id) 
