@@ -373,21 +373,16 @@ body{
         display: block;
     }
 
-    #cart {
-        margin-top: -7.5px;
-        margin-left: 40%;
-    }
-
-    #cart > :first-child, #cart > span {
-        display: none;
-    }
-
     #header {
         height: 60px;
     }
 
     #header img {
         height: 60px
+    }
+
+    #cart {
+        margin-top: -7.5px;
     }
 
     #slogan {
@@ -415,6 +410,17 @@ body{
         font-size: 0.8rem;
         padding-left: 2rem;
         padding-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #cart {
+        margin-top: -7.5px;
+        margin-left: 40%;
+    }
+
+    #cart > :first-child, #cart > span {
+        display: none;
     }
 }
 
